@@ -57,7 +57,7 @@
             layers: 'Aerial_Photography_Grid_1_Km_X_1_Km', // Replace with your actual WMS layer name
             format: 'image/png',
             transparent: true,
-            attribution: "CDNGI GeoPortal"
+            attribution: "" // Remove attribution message
         }).addTo(map);
 
         // Add other GeoServer WMS layers (Map Index and Streets)
@@ -65,14 +65,14 @@
             layers: 'map_index_coct', // Replace with your actual WMS layer name for map index
             format: 'image/png',
             transparent: true,
-            attribution: "CDNGI GeoPortal"
+            attribution: "" // Remove attribution message
         }).addTo(map);
 
         var streetLayer = L.tileLayer.wms("https://wms.qgiscloud.com/wdxemi002/CDNGI_GeoPortal/", {
             layers: 'street_coct', // Replace with your actual WMS layer name for streets
             format: 'image/png',
             transparent: true,
-            attribution: "CDNGI GeoPortal"
+            attribution: "" // Remove attribution message
         }).addTo(map);
 
         // Add City of Cape Town WMS layer for Aerial Imagery (replace with actual layer name)
@@ -80,7 +80,7 @@
             layers: 'your-cape-town-layer', // Replace with the actual layer name for aerial imagery
             format: 'image/png',
             transparent: true,
-            attribution: "City of Cape Town"
+            attribution: "" // Remove attribution message
         }).addTo(map);
 
         // Layer Control setup (optional: to toggle layers on/off)
