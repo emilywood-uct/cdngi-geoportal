@@ -1,126 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Geoportal</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-  <style>
-    #map { height: 600px; }
-    /* Side pane styles */
-    #side-pane {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 300px;
-      height: 100%;
-      background-color: white;
-      box-shadow: -2px 0px 5px rgba(0,0,0,0.5);
-      padding: 10px;
-      display: none;
-      overflow-y: scroll;
-      z-index: 1000;
-    }
-    #side-pane h2 { margin-top: 0; }
-    #side-pane ul { padding: 0; }
-    #side-pane ul li { margin: 10px 0; }
-    #close-btn {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      cursor: pointer;
-      font-size: 20px;
-      background-color: red;
-      color: white;
-      border: none;
-      padding: 5px;
-      border-radius: 5px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CDNGI GeoPortal</title>
 
-    /* Your metadata catalogue styles can go here */
-    #metadata-catalogue { margin-top: 20px; }
-  </style>
+    <!-- Link to Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+    <!-- Link to custom CSS (optional for styling) -->
+    <style>
+        #map {
+            width: 100%;
+            height: 600px;
+        }
+
+        /* Optional styling for the metadata pane */
+        #metadata-pane {
+            position: absolute;
+            top: 10%;
+            right: 10px;
+            background: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 300px;
+            display: none; /* Initially hidden */
+        }
+    </style>
 </head>
 <body>
-  <h1>My Geoportal</h1>
-  <div id="map"></div>
 
-  <!-- Side Pane for displaying data on tile click -->
-  <div id="side-pane">
-    <button id="close-btn">X</button>
-    <h2>Data for Selected Tile</h2>
-    <ul id="data-list">
-      <!-- Data for the tile will be dynamically inserted here -->
-    </ul>
-  </div>
+    <!-- Map container -->
+    <div id="map"></div>
 
-  <!-- Your existing metadata catalogue -->
-  <div id="metadata-catalogue">
-    <h2>Metadata Catalogue</h2>
-    <ul>
-      <li><a href="https://link-to-your-metadata1" target="_blank">Beacon Data</a></li>
-      <li><a href="https://link-to-your-metadata2" target="_blank">Street Data</a></li>
-      <li><a href="https://link-to-your-metadata3" target="_blank">Aerial Imagery</a></li>
-      <li><a href="https://link-to-your-metadata4" target="_blank">DEM Data</a></li>
-    </ul>
-  </div>
+    <!-- Optional metadata pane (for showing data info) -->
+    <div id="metadata-pane">
+        <h3>Metadata</h3>
+        <p>Select a layer to see metadata and download options.</p>
+        <!-- Dynamic metadata content will appear here -->
+    </div>
 
-  <script>
-    // Initialize map, centered on Cape Town
-    var map = L.map('map').setView([-33.9249, 18.4241], 12); // Coordinates for Cape Town
+    <!-- Include Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
-    // Add OpenStreetMap tile layer (base map)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+    <script>
+        // Initialize map, centered on Cape Town
+        var map = L.map('map').setView([-33.9249, 18.4241], 12); // Coordinates for Cape Town
 
-    // Add WMS layers
-    var wmsLayer = L.tileLayer.wms("https://wms.qgiscloud.com/wdxemi002/CDNGI_GeoPortal/", {
-      layers: 'your-layer-name', // Replace with the correct layer name
-      format: 'image/png',
-      transparent: true,
-      attribution: "Your Attribution Here"
-    }).addTo(map);
+        // Add OpenStreetMap tile layer (base map)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
 
-    var aerialImageryLayer = L.tileLayer.wms("https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets", {
-      layers: 'your-cape-town-layer', // Replace with the correct layer name for aerial imagery
-      format: 'image/png',
-      transparent: true,
-      attribution: "City of Cape Town"
-    }).addTo(map);
+        // Add your GeoServer WMS layer (Aerial Photography)
+        var wmsLayer = L.tileLayer.wms("https://wms.qgiscloud.com/wdxemi002/CDNGI_GeoPortal/", {
+            layers: 'Aerial_Photography_Grid_1_Km_X_1_Km', // Replace with your actual WMS layer name
+            format: 'image/png',
+            transparent: true,
+            attribution: "CDNGI GeoPortal"
+        }).addTo(map);
 
-    // Add click event listener to the map
-    map.on('click', function(e) {
-      // Show the side pane when the user clicks on the map
-      document.getElementById('side-pane').style.display = 'block';
+        // Add other GeoServer WMS layers (Map Index and Streets)
+        var mapIndexLayer = L.tileLayer.wms("https://wms.qgiscloud.com/wdxemi002/CDNGI_GeoPortal/", {
+            layers: 'map_index_coct', // Replace with your actual WMS layer name for map index
+            format: 'image/png',
+            transparent: true,
+            attribution: "CDNGI GeoPortal"
+        }).addTo(map);
 
-      // Populate the side pane with data for the clicked location
-      var dataList = document.getElementById('data-list');
-      dataList.innerHTML = ''; // Clear previous data
+        var streetLayer = L.tileLayer.wms("https://wms.qgiscloud.com/wdxemi002/CDNGI_GeoPortal/", {
+            layers: 'street_coct', // Replace with your actual WMS layer name for streets
+            format: 'image/png',
+            transparent: true,
+            attribution: "CDNGI GeoPortal"
+        }).addTo(map);
 
-      // Add relevant data (You can dynamically replace this with actual data)
-      var listItem = document.createElement('li');
-      listItem.textContent = 'Beacons Data (example)';
-      dataList.appendChild(listItem);
+        // Add City of Cape Town WMS layer for Aerial Imagery (replace with actual layer name)
+        var aerialImageryLayer = L.tileLayer.wms("https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets", {
+            layers: 'your-cape-town-layer', // Replace with the actual layer name for aerial imagery
+            format: 'image/png',
+            transparent: true,
+            attribution: "City of Cape Town"
+        }).addTo(map);
 
-      listItem = document.createElement('li');
-      listItem.textContent = 'Streets Data (example)';
-      dataList.appendChild(listItem);
+        // Layer Control setup (optional: to toggle layers on/off)
+        var baseMaps = {
+            "OpenStreetMap": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            })
+        };
 
-      listItem = document.createElement('li');
-      listItem.textContent = 'Aerial Imagery (example)';
-      dataList.appendChild(listItem);
+        var overlayMaps = {
+            "Aerial Photography Grid": wmsLayer,
+            "Map Index": mapIndexLayer,
+            "Streets": streetLayer,
+            "City of Cape Town Aerial Imagery": aerialImageryLayer
+        };
 
-      listItem = document.createElement('li');
-      listItem.textContent = 'DEM Data (example)';
-      dataList.appendChild(listItem);
-    });
-
-    // Close the side pane when the close button is clicked
-    document.getElementById('close-btn').onclick = function() {
-      document.getElementById('side-pane').style.display = 'none';
-    };
-  </script>
+        // Add Layer Control to the map
+        L.control.layers(baseMaps, overlayMaps).addTo(map);
+    </script>
 </body>
 </html>
