@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Metadata Catalogue | CDNGI Geoportal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #1e3a8a;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .dataset {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .dataset h2 {
+      color: #1e3a8a;
+    }
+    .dataset p {
+      margin: 0.5rem 0;
+    }
+    .download-link {
+      display: inline-block;
+      margin-top: 0.75rem;
+      padding: 0.5rem 1rem;
+      background-color: #1e3a8a;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .download-link:hover {
+      background-color: #3b82f6;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>CDNGI Geoportal Metadata Catalogue</h1>
+</header>
+
+<div class="container">
+
+  <div id="beacons" class="dataset">
+    <h2>Beacons</h2>
+    <p><strong>Description:</strong> Survey beacons in the Cape Town region used for geodetic referencing.</p>
+    <p><strong>CRS:</strong> EPSG:4326</p>
+    <p><strong>Source:</strong> CDNGI QGIS Cloud WMS</p>
+    <a href="https://wms.qgiscloud.com/wdxemi002/CDNGI_GeoPortal/" class="download-link" target="_blank">Download from WMS</a>
+  </div>
+
+  <div id="allotment" class="dataset">
+    <h2>Allotment Township</h2>
+    <p><strong>Description:</strong> Defined allotments or townships demarcated within COCT boundaries.</p>
+    <p><strong>CRS:</strong> EPSG:4326</p>
+    <p><strong>Source:</strong> CDNGI QGIS Cloud WMS</p>
+    <a href="https://wms.qgiscloud.com/wdxemi002/CDNGI_GeoPortal/" class="download-link" target="_blank">Download from WMS</a>
+  </div>
+
+  <div id="farms" class="dataset">
+    <h2>Farms</h2>
+    <p><strong>Description:</strong> Farm parcel boundaries across the City of Cape Town region.</p>
+    <p><strong>CRS:</strong> EPSG:4326</p>
+    <p><strong>Source:</strong> CDNGI QGIS Cloud WMS</p>
+    <a href="https://wms.qgiscloud.com/wdxemi002/CDNGI_GeoPortal/" class="download-link" target="_blank">Download from WMS</a>
+  </div>
+
+  <div id="lease" class="dataset">
+    <h2>Lease Area</h2>
+    <p><strong>Description:</strong> Areas under leasehold, indicated for planning and management.</p>
+    <p><strong>CRS:</strong> EPSG:4326</p>
+    <p><strong>Source:</strong> CDNGI QGIS Cloud WMS</p>
+    <a href="https://wms.qgiscloud.com/wdxemi002/CDNGI_GeoPortal/" class="download-link" target="_blank">Download from WMS</a>
+  </div>
+
+  <div id="streets" class="dataset">
+    <h2>Streets</h2>
+    <p><strong>Description:</strong> Street centerlines within the COCT metropolitan area.</p>
+    <p><strong>CRS:</strong> EPSG:4326</p>
+    <p><strong>Source:</strong> CDNGI QGIS Cloud WMS</p>
+    <a href="https://wms.qgiscloud.com/wdxemi002/CDNGI_GeoPortal/" class="download-link" target="_blank">Download from WMS</a>
+  </div>
+
+  <div id="aerial" class="dataset">
+    <h2>Aerial Imagery</h2>
+    <p><strong>Description:</strong> High-resolution aerial imagery tiles for Cape Town.</p>
+    <p><strong>CRS:</strong> EPSG:4326</p>
+    <p><strong>Source:</strong> COCT WMS</p>
+    <a href="https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets" class="download-link" target="_blank">View in COCT WMS</a>
+  </div>
+
+  <div id="dem" class="dataset">
+    <h2>Digital Elevation Model (DEM)</h2>
+    <p><strong>Description:</strong> Raster DEM showing elevation across Cape Town.</p>
+    <p><strong>CRS:</strong> EPSG:4326</p>
+    <p><strong>Source:</strong> COCT WMS</p>
+    <a href="https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets" class="download-link" target="_blank">View in COCT WMS</a>
+  </div>
+
+</div>
+
+</body>
+</html>
