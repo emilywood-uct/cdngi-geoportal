@@ -740,6 +740,9 @@
             onEachFeature: pop_MapIndex_8,
             style: style_MapIndex_8_0,
         });
+	layer_MapIndex_8.on('click', function(e) {
+    		openSidebar(e.layer.feature.properties);
+	});
         bounds_group.addLayer(layer_MapIndex_8);
         map.addLayer(layer_MapIndex_8);
         function pop_AerialPhotographyIndex_9(feature, layer) {
@@ -799,6 +802,9 @@
             onEachFeature: pop_AerialPhotographyIndex_9,
             style: style_AerialPhotographyIndex_9_0,
         });
+	layer_AerialPhotographyIndex_9.on('click', function(e) {
+   		openSidebar(e.layer.feature.properties);
+	});
         bounds_group.addLayer(layer_AerialPhotographyIndex_9);
         map.addLayer(layer_AerialPhotographyIndex_9);
         map.on("zoomend", function(e) {
