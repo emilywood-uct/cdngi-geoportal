@@ -67,10 +67,13 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-    .dataset h2 {
-      color: #1e3a8a;
-      font-size: 1.5rem;
-      margin-top: 0;
+    .dataset-header {
+      background-color: #1e3a8a;
+      color: white;
+      padding: 0.75rem 1rem;
+      border-radius: 6px 6px 0 0;
+      margin: -1.5rem -1.5rem 1rem -1.5rem;
+      font-size: 1.25rem;
     }
 
     .dataset p {
@@ -119,7 +122,7 @@
 <div class="container">
 
   <div id="beacons" class="dataset">
-    <h2>Beacons</h2>
+    <div class="dataset-header">Beacons</div>
     <p><strong>Title:</strong> Beacons</p>
     <p><strong>Summary:</strong> Survey beacons in the Cape Town region used for geodetic referencing.</p>
     <p><strong>Keywords:</strong> beacons, geodetic, reference, survey, control</p>
@@ -127,11 +130,11 @@
     <p><strong>CRS:</strong> EPSG:4326</p>
     <p><strong>Source:</strong> CDNGI QGIS Cloud WMS</p>
     <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
-    <a href="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Beacons_COCT.zip" class="download-link" target="_blank" rel="noopener noreferrer" download>Download Shapefile ZIP</a>
+    <a href="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Beacons_COCT.zip" class="download-link" download>Download Shapefile ZIP</a>
   </div>
 
   <div id="allotment" class="dataset">
-    <h2>Allotment Township</h2>
+    <div class="dataset-header">Allotment Township</div>
     <p><strong>Title:</strong> Allotment Township</p>
     <p><strong>Summary:</strong> Urban land parcels allocated in Cape Town.</p>
     <p><strong>Keywords:</strong> allotment, township, planning, parcels</p>
@@ -143,7 +146,7 @@
   </div>
 
   <div id="farms" class="dataset">
-    <h2>Farms</h2>
+    <div class="dataset-header">Farms</div>
     <p><strong>Title:</strong> Farms</p>
     <p><strong>Summary:</strong> Agricultural parcels and boundaries in Cape Town.</p>
     <p><strong>Keywords:</strong> farms, rural, boundaries, agriculture</p>
@@ -155,7 +158,7 @@
   </div>
 
   <div id="lease" class="dataset">
-    <h2>Lease Area</h2>
+    <div class="dataset-header">Lease Area</div>
     <p><strong>Title:</strong> Lease Area</p>
     <p><strong>Summary:</strong> Parcels of land leased to private entities.</p>
     <p><strong>Keywords:</strong> lease, municipal, parcels, contracts</p>
@@ -167,7 +170,7 @@
   </div>
 
   <div id="streets" class="dataset">
-    <h2>Streets</h2>
+    <div class="dataset-header">Streets</div>
     <p><strong>Title:</strong> Streets</p>
     <p><strong>Summary:</strong> Road network of the Cape Town metropolitan area.</p>
     <p><strong>Keywords:</strong> streets, roads, transport, network</p>
@@ -179,7 +182,7 @@
   </div>
 
   <div id="aerial" class="dataset">
-    <h2>Aerial Imagery</h2>
+    <div class="dataset-header">Aerial Imagery</div>
     <p><strong>Title:</strong> Aerial Imagery</p>
     <p><strong>Summary:</strong> High-resolution aerial imagery tiles for Cape Town.</p>
     <p><strong>Keywords:</strong> imagery, aerial, orthophoto, tiles, remote sensing</p>
@@ -192,7 +195,7 @@
   </div>
 
   <div id="dem" class="dataset">
-    <h2>Digital Elevation Model (DEM)</h2>
+    <div class="dataset-header">Digital Elevation Model (DEM)</div>
     <p><strong>Title:</strong> Digital Elevation Model (DEM)</p>
     <p><strong>Summary:</strong> Raster DEM showing elevation across Cape Town.</p>
     <p><strong>Keywords:</strong> elevation, terrain, raster, surface, DEM</p>
