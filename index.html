@@ -19,12 +19,53 @@
             padding: 0;
             margin: 0;
         }
+	.sidebar {
+	  	position: absolute;
+	  	top: 0;
+	  	right: -300px;
+	  	width: 300px;
+	  	height: 100%;
+	  	background-color: #f8f9fa;
+	  	box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+	  	padding: 20px;
+	  	transition: right 0.3s ease;
+	  	z-index: 999;
+	  	overflow-y: auto;
+	}
+	.sidebar.open {
+	  right: 0;
+	}
+	.sidebar h2 {
+	  font-size: 18px;
+	  margin-top: 0;
+	}
+	.sidebar ul {
+	  list-style-type: none;
+	  padding-left: 0;
+	}
+	.sidebar ul li {
+	  margin: 10px 0;
+	}
+
         </style>
         <title></title>
     </head>
     <body>
         <div id="map">
         </div>
+    	<div id="sidebar" class="sidebar">
+  	<button onclick="closeSidebar()" style="float:right;">×</button>
+  	<h2>Metadata Catalogue</h2>
+  	<ul>
+   	<li><a href="https://emilywood-uct.github.io/cdngi-geoportal/metadata.html" target="_blank">DEM</a></li>
+    	<li><a href="https://emilywood-uct.github.io/cdngi-geoportal/metadata.html" target="_blank">Aerial Imagery</a></li>
+    	<li><a href="https://emilywood-uct.github.io/cdngi-geoportal/metadata.html" target="_blank">Beacons</a></li>
+    	<li><a href="https://emilywood-uct.github.io/cdngi-geoportal/metadata.html" target="_blank">Farms</a></li>
+    	<li><a href="https://emilywood-uct.github.io/cdngi-geoportal/metadata.html" target="_blank">Lease Area</a></li>
+    	<li><a href="https://emilywood-uct.github.io/cdngi-geoportal/metadata.html" target="_blank">Allotment</a></li>
+  	</ul>
+	</div>
+
         <script src="js/qgis2web_expressions.js"></script>
         <script src="js/leaflet.js"></script>
         <script src="js/L.Control.Layers.Tree.min.js"></script>
@@ -83,8 +124,9 @@
 	div.innerHTML = 'Metadata Catalogue';
 	
 	div.onclick = function () {
-		window.open('https://emilywood-uct.github.io/cdngi-geoportal/metadata.html', '_blank');
+   		openSidebar();
 	};
+
 	
 	return div;
 	};
@@ -810,6 +852,14 @@
             propertyName: 'ofc_sbrb_n'}));
         document.getElementsByClassName('search-button')[0].className +=
          ' fa fa-binoculars';
+	function openSidebar() {
+	  document.getElementById('sidebar').classList.add('open');
+	}
+
+	function closeSidebar() {
+	  document.getElementById('sidebar').classList.remove('open');
+	}
+
         </script>
     </body>
 </html>
