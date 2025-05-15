@@ -46,17 +46,10 @@
       border: none;
       border-radius: 4px;
       cursor: pointer;
+      font: inherit;
     }
     .download-link:hover {
       background-color: #3b82f6;
-    }
-    code {
-      display: block;
-      margin-top: 0.25rem;
-      background: #f3f3f3;
-      padding: 0.5rem;
-      border-radius: 4px;
-      word-break: break-all;
     }
   </style>
 </head>
@@ -70,10 +63,10 @@
 
   <div id="beacons" class="dataset">
     <h2>Beacons</h2>
-    <p><strong>Title:</strong> Survey Beacons - Cape Town</p>
-    <p><strong>Summary:</strong> Survey beacons for geodetic control and referencing in Cape Town.</p>
-    <p><strong>Keywords:</strong> Beacons, Geodetic Control, Surveying, CDNGI</p>
-    <p><strong>Abstract:</strong> This dataset provides the locations of geodetic survey beacons within the City of Cape Town. These fixed reference points are essential for accurate mapping, cadastral surveys, and infrastructure development projects.</p>
+    <p><strong>Title:</strong> Beacons</p>
+    <p><strong>Summary:</strong> Survey beacons in the Cape Town region used for geodetic referencing.</p>
+    <p><strong>Keywords:</strong> beacons, geodetic, reference, survey, control</p>
+    <p><strong>Abstract:</strong> This dataset includes fixed geodetic beacons across Cape Town used by surveyors and engineers for referencing precise locations. These points are essential for accurate land surveying and geospatial alignment.</p>
     <p><strong>CRS:</strong> EPSG:4326</p>
     <p><strong>Source:</strong> CDNGI QGIS Cloud WMS</p>
     <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
@@ -82,10 +75,10 @@
 
   <div id="allotment" class="dataset">
     <h2>Allotment Township</h2>
-    <p><strong>Title:</strong> Allotment and Township Boundaries - Cape Town</p>
-    <p><strong>Summary:</strong> Administrative boundaries for township and allotment areas.</p>
-    <p><strong>Keywords:</strong> Allotment, Township, Boundaries, Land Division</p>
-    <p><strong>Abstract:</strong> This dataset includes demarcated allotment and township regions within Cape Town, aiding urban planning, zoning, and administrative tasks.</p>
+    <p><strong>Title:</strong> Allotment Township</p>
+    <p><strong>Summary:</strong> Defined allotments or townships demarcated within COCT boundaries.</p>
+    <p><strong>Keywords:</strong> allotment, township, urban, boundaries, planning</p>
+    <p><strong>Abstract:</strong> This layer shows administrative allotments and townships within the City of Cape Town for land use planning and cadastral referencing. It supports urban development and infrastructure projects.</p>
     <p><strong>CRS:</strong> EPSG:4326</p>
     <p><strong>Source:</strong> CDNGI QGIS Cloud WMS</p>
     <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
@@ -94,10 +87,10 @@
 
   <div id="farms" class="dataset">
     <h2>Farms</h2>
-    <p><strong>Title:</strong> Farm Parcels - Cape Town</p>
-    <p><strong>Summary:</strong> Cadastral boundaries for farms across the Cape Town area.</p>
-    <p><strong>Keywords:</strong> Farms, Parcels, Cadastral, Land Use</p>
-    <p><strong>Abstract:</strong> This dataset outlines the legal boundaries of agricultural land parcels used for ownership, valuation, and land administration in Cape Town.</p>
+    <p><strong>Title:</strong> Farms</p>
+    <p><strong>Summary:</strong> Farm parcel boundaries across the City of Cape Town region.</p>
+    <p><strong>Keywords:</strong> farms, agriculture, parcels, rural, boundaries</p>
+    <p><strong>Abstract:</strong> This dataset maps out registered farm properties and land parcels used for agricultural or rural purposes in the COCT region. It assists in rural land management and development control.</p>
     <p><strong>CRS:</strong> EPSG:4326</p>
     <p><strong>Source:</strong> CDNGI QGIS Cloud WMS</p>
     <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
@@ -106,10 +99,10 @@
 
   <div id="lease" class="dataset">
     <h2>Lease Area</h2>
-    <p><strong>Title:</strong> Leasehold Areas - Cape Town</p>
-    <p><strong>Summary:</strong> Areas under legal lease agreements within the municipality.</p>
-    <p><strong>Keywords:</strong> Lease Area, Planning, Tenure, Land Use</p>
-    <p><strong>Abstract:</strong> This layer identifies land parcels leased from the municipality, useful for property management, investment planning, and development control.</p>
+    <p><strong>Title:</strong> Lease Area</p>
+    <p><strong>Summary:</strong> Areas under leasehold, indicated for planning and management.</p>
+    <p><strong>Keywords:</strong> lease, land use, planning, contracts, municipal</p>
+    <p><strong>Abstract:</strong> This dataset represents municipal or private land parcels currently under lease agreements. It supports legal compliance, property management, and public sector planning.</p>
     <p><strong>CRS:</strong> EPSG:4326</p>
     <p><strong>Source:</strong> CDNGI QGIS Cloud WMS</p>
     <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
@@ -118,10 +111,10 @@
 
   <div id="streets" class="dataset">
     <h2>Streets</h2>
-    <p><strong>Title:</strong> Street Centerlines - Cape Town</p>
-    <p><strong>Summary:</strong> Transportation network showing streets and roads.</p>
-    <p><strong>Keywords:</strong> Roads, Streets, Transportation, Infrastructure</p>
-    <p><strong>Abstract:</strong> This dataset contains centerline geometries of all roads in the Cape Town metro for use in navigation, logistics, routing, and infrastructure planning.</p>
+    <p><strong>Title:</strong> Streets</p>
+    <p><strong>Summary:</strong> Street centerlines within the COCT metropolitan area.</p>
+    <p><strong>Keywords:</strong> roads, streets, transportation, routing, urban</p>
+    <p><strong>Abstract:</strong> This line layer includes road and street centerlines across Cape Town, used for navigation, urban planning, emergency routing, and transport analysis.</p>
     <p><strong>CRS:</strong> EPSG:4326</p>
     <p><strong>Source:</strong> CDNGI QGIS Cloud WMS</p>
     <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
@@ -130,41 +123,43 @@
 
   <div id="aerial" class="dataset">
     <h2>Aerial Imagery</h2>
-    <p><strong>Title:</strong> High-Resolution Aerial Imagery - Cape Town</p>
-    <p><strong>Summary:</strong> Aerial photography tiles for visual analysis and mapping over Cape Town.</p>
-    <p><strong>Keywords:</strong> Aerial Imagery, Orthophoto, Remote Sensing, Cape Town</p>
-    <p><strong>Abstract:</strong> This high-resolution aerial imagery is sourced from the City of Cape Town WMS. It is used for land use analysis, environmental monitoring, change detection, and base mapping purposes in GIS applications.</p>
+    <p><strong>Title:</strong> Aerial Imagery</p>
+    <p><strong>Summary:</strong> High-resolution aerial imagery tiles for Cape Town.</p>
+    <p><strong>Keywords:</strong> imagery, aerial, orthophoto, tiles, remote sensing</p>
+    <p><strong>Abstract:</strong> This service provides orthorectified high-resolution aerial photography of Cape Town for use in mapping, planning, and environmental analysis.</p>
     <p><strong>CRS:</strong> EPSG:4326</p>
-    <p><strong>Source:</strong> Use URL below to add WMS Server Connection in ArcGIS Desktop, ArcPro, QGIS, AutoCAD, etc.
-      <code id="aerial-url">https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial Datasets?service=WMS&request=getcapabilities&</code>
-    </p>
+    <p><strong>Source:</strong> Use URL below to add WMS Server Connection in ArcGIS Desktop, ArcPro, QGIS, AutoCAD, etc.<br>
+    <code id="aerial-url">https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial Datasets?service=WMS&request=getcapabilities&</code></p>
     <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
-    <button class="download-link" onclick="copyToClipboard('aerial-url')">Copy WMS URL</button>
+    <div>
+      <button class="download-link" onclick="copyToClipboard('aerial-url')">Copy WMS URL</button>
+    </div>
   </div>
 
   <div id="dem" class="dataset">
     <h2>Digital Elevation Model (DEM)</h2>
-    <p><strong>Title:</strong> DEM - Cape Town</p>
-    <p><strong>Summary:</strong> Elevation model representing ground surface topography in Cape Town.</p>
-    <p><strong>Keywords:</strong> DEM, Elevation, Topography, Terrain, Raster</p>
-    <p><strong>Abstract:</strong> The Digital Elevation Model provides raster-based elevation values that describe the terrain of Cape Town. It supports hydrological modeling, infrastructure planning, slope analysis, and 3D visualization tasks.</p>
+    <p><strong>Title:</strong> Digital Elevation Model (DEM)</p>
+    <p><strong>Summary:</strong> Raster DEM showing elevation across Cape Town.</p>
+    <p><strong>Keywords:</strong> elevation, terrain, raster, surface, DEM</p>
+    <p><strong>Abstract:</strong> This dataset includes raster elevation data for the City of Cape Town, suitable for hydrology modeling, visibility analysis, and terrain understanding.</p>
     <p><strong>CRS:</strong> EPSG:4326</p>
-    <p><strong>Source:</strong> Use URL below to add WMS Server Connection in ArcGIS Desktop, ArcPro, QGIS, AutoCAD, etc.
-      <code id="dem-url">https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial Datasets?service=WMS&request=getcapabilities&</code>
-    </p>
+    <p><strong>Source:</strong> Use URL below to add WMS Server Connection in ArcGIS Desktop, ArcPro, QGIS, AutoCAD, etc.<br>
+    <code id="dem-url">https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial Datasets?service=WMS&request=getcapabilities&</code></p>
     <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
-    <button class="download-link" onclick="copyToClipboard('dem-url')">Copy WMS URL</button>
+    <div>
+      <button class="download-link" onclick="copyToClipboard('dem-url')">Copy WMS URL</button>
+    </div>
   </div>
 
 </div>
 
 <script>
-  function copyToClipboard(elementId) {
-    const text = document.getElementById(elementId).innerText;
-    navigator.clipboard.writeText(text).then(() => {
-      alert('WMS URL copied to clipboard!');
+  function copyToClipboard(id) {
+    const url = document.getElementById(id).textContent.trim();
+    navigator.clipboard.writeText(url).then(() => {
+      alert("WMS URL copied to clipboard!");
     }).catch(err => {
-      alert('Failed to copy: ' + err);
+      alert("Failed to copy: " + err);
     });
   }
 </script>
