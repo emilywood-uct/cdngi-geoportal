@@ -140,7 +140,7 @@
             zoomControl:false, maxZoom:28, minZoom:9
         })
 
-	var metadataControl = L.control({ position: 'bottomright' });
+	var metadataControl = L.control({ position: 'bottomleft' });
 
 	metadataControl.onAdd = function (map) {
 	var div = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
@@ -153,7 +153,7 @@
 	div.style.border = '2px solid #666';
 	div.style.borderRadius = '4px';
 	div.title = 'Open Metadata Catalogue';
-	div.innerHTML = 'Metadata Catalogue';
+	div.innerHTML = 'Open Metadata Catalogue';
 	
 	div.onclick = function () {
    		openSidebar();
