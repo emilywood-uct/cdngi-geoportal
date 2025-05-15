@@ -2,97 +2,162 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Metadata Catalogue | CDNGI Geoportal</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
   <style>
     body {
       font-family: 'Inter', sans-serif;
       background-color: #f9f9f9;
       margin: 0;
       padding: 0;
+      color: #333;
+      line-height: 1.6;
     }
     header {
       background-color: #1e3a8a;
       color: white;
-      padding: 1rem 2rem;
+      padding: 1.5rem 2rem 2rem 2rem;
       text-align: center;
       position: relative;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     }
     header img.logo-left {
       position: absolute;
-      top: 10px;
-      left: 10px;
+      top: 12px;
+      left: 15px;
       height: 60px;
+      filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.3));
     }
     header img.logo-right {
       position: absolute;
-      top: 10px;
-      right: 10px;
+      top: 12px;
+      right: 15px;
       height: 60px;
+      filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.3));
+    }
+    header h1 {
+      font-weight: 700;
+      font-size: 1.9rem;
+      margin-top: 1rem;
+      letter-spacing: 0.05em;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
     }
     .search-container {
       background-color: #ccc;
       padding: 1rem 2rem;
       text-align: center;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
     }
     #searchInput {
       width: 60%;
       max-width: 500px;
       padding: 0.75rem 1rem;
       font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
+      border: 1px solid #999;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    #searchInput:focus {
+      outline: none;
+      border-color: #1e3a8a;
+      box-shadow: 0 0 8px #1e3a8a;
+      background-color: #fff;
     }
     .container {
       max-width: 1000px;
-      margin: 2rem auto;
+      margin: 2rem auto 3rem auto;
       padding: 0 1rem;
     }
     .dataset {
       background: white;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 1.75rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .dataset:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
     }
     .dataset h2 {
       color: #1e3a8a;
+      margin-top: 0;
+      font-weight: 700;
     }
     .dataset p {
-      margin: 0.5rem 0;
+      margin: 0.4rem 0;
+      font-size: 0.95rem;
+      color: #444;
     }
     .download-link {
       display: inline-block;
-      margin-top: 0.75rem;
-      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
       background-color: #1e3a8a;
       color: white;
       text-decoration: none;
       border: none;
-      border-radius: 4px;
+      border-radius: 6px;
       cursor: pointer;
       font: inherit;
+      font-weight: 600;
+      box-shadow: 0 3px 6px rgba(30, 58, 138, 0.6);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
-    .download-link:hover {
+    .download-link:hover,
+    .download-link:focus {
       background-color: #3b82f6;
+      box-shadow: 0 6px 12px rgba(59, 130, 246, 0.6);
+      outline: none;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9rem;
+      word-break: break-all;
+    }
+    /* Responsive tweaks */
+    @media (max-width: 700px) {
+      #searchInput {
+        width: 90%;
+      }
+      header img.logo-left, header img.logo-right {
+        height: 45px;
+        top: 8px;
+      }
+      header h1 {
+        font-size: 1.4rem;
+        margin-top: 0.5rem;
+      }
+      .dataset {
+        padding: 1rem 1.25rem;
+      }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <img src="https://wikiwandv2-19431.kxcdn.com/_next/image?url=https://upload.wikimedia.org/wikipedia/en/thumb/0/0b/CD_NGI_logo.svg/640px-CD_NGI_logo.svg.png&w=640&q=50" class="logo-left" alt="CDNGI Logo">
-  <img src="https://th.bing.com/th/id/R.b6aa4facbcaa25bad4dbe8695a706b6b?rik=9nrK7tipvjYmeA&riu=http%3a%2f%2fwww.govpage.co.za%2fuploads%2f2%2f4%2f0%2f5%2f24052997%2fagriculture-land-reform-rural-development_orig.png&ehk=Cq5906wSM7aqilFNKArVjBWmXtycMJJexz8dVzaWWPQ%3d&risl=&pid=ImgRaw&r=0" class="logo-right" alt="DALRRD Logo">
+  <img src="https://wikiwandv2-19431.kxcdn.com/_next/image?url=https://upload.wikimedia.org/wikipedia/en/thumb/0/0b/CD_NGI_logo.svg/640px-CD_NGI_logo.svg.png&w=640&q=50" class="logo-left" alt="CDNGI Logo" />
+  <img src="https://th.bing.com/th/id/R.b6aa4facbcaa25bad4dbe8695a706b6b?rik=9nrK7tipvjYmeA&riu=http%3a%2f%2fwww.govpage.co.za%2fuploads%2f2%2f4%2f0%2f5%2f24052997%2fagriculture-land-reform-rural-development_orig.png&ehk=Cq5906wSM7aqilFNKArVjBWmXtycMJJexz8dVzaWWPQ%3d&risl=&pid=ImgRaw&r=0" class="logo-right" alt="DALRRD Logo" />
   <h1>CDNGI Geoportal Metadata Catalogue</h1>
 </header>
 
 <div class="search-container">
-  <input type="text" id="searchInput" placeholder="Search datasets..." onkeyup="filterDatasets()">
+  <input type="text" id="searchInput" placeholder="Search datasets..." onkeyup="filterDatasets()" aria-label="Search datasets" />
 </div>
 
 <div class="container">
 
+  <!-- Datasets as before -->
   <div id="beacons" class="dataset">
     <h2>Beacons</h2>
     <p><strong>Title:</strong> Beacons</p>
@@ -146,7 +211,7 @@
     <p><strong>Title:</strong> Streets</p>
     <p><strong>Summary:</strong> Road network of the Cape Town metropolitan area.</p>
     <p><strong>Keywords:</strong> streets, roads, transport, network</p>
-    <p><strong>Abstract:</strong> A polyline layer of all major and minor roads, including street names, classification, and connectivity, useful for navigation and city planning.</p>
+    <p><strong>Abstract:</strong> Vector line dataset showing the official roadways for navigation and urban infrastructure planning within Cape Town.</p>
     <p><strong>CRS:</strong> EPSG:4326</p>
     <p><strong>Source:</strong> CDNGI QGIS Cloud WMS</p>
     <p><strong>Credits:</strong> Emily Wood</p>
@@ -156,50 +221,37 @@
   <div id="aerial" class="dataset">
     <h2>Aerial Imagery</h2>
     <p><strong>Title:</strong> Aerial Imagery</p>
-    <p><strong>Summary:</strong> High-resolution aerial imagery tiles for Cape Town.</p>
-    <p><strong>Keywords:</strong> imagery, aerial, orthophoto, tiles, remote sensing</p>
-    <p><strong>Abstract:</strong> This service provides orthorectified high-resolution aerial photography of Cape Town for use in mapping, planning, and environmental analysis.</p>
+    <p><strong>Summary:</strong> High-resolution aerial images of Cape Town.</p>
+    <p><strong>Keywords:</strong> aerial, imagery, photos, ortho, remote sensing</p>
+    <p><strong>Abstract:</strong> Orthorectified aerial photos captured from aircraft, used for land use planning, environmental monitoring, and urban development.</p>
     <p><strong>CRS:</strong> EPSG:4326</p>
-    <p><strong>Source:</strong> Use URL below to add WMS Server Connection:<br>
-    <code id="aerial-url">https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial Datasets?service=WMS&request=getcapabilities&</code></p>
-    <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
-    <button class="download-link" onclick="copyToClipboard('aerial-url')">Copy WMS URL</button>
+    <p><strong>Source:</strong> Cape Town Municipality WMS</p>
+    <p><strong>Credits:</strong> City of Cape Town GIS Department</p>
+    <a href="https://www.capetown.gov.za/aerial-imagery-download" class="download-link" target="_blank" rel="noopener noreferrer">Download Aerial Imagery</a>
   </div>
 
   <div id="dem" class="dataset">
     <h2>Digital Elevation Model (DEM)</h2>
-    <p><strong>Title:</strong> Digital Elevation Model (DEM)</p>
-    <p><strong>Summary:</strong> Raster DEM showing elevation across Cape Town.</p>
-    <p><strong>Keywords:</strong> elevation, terrain, raster, surface, DEM</p>
-    <p><strong>Abstract:</strong> This dataset includes raster elevation data for the City of Cape Town, suitable for hydrology modeling, visibility analysis, and terrain understanding.</p>
+    <p><strong>Title:</strong> Digital Elevation Model</p>
+    <p><strong>Summary:</strong> Terrain elevation data for Cape Town area.</p>
+    <p><strong>Keywords:</strong> DEM, elevation, terrain, topography</p>
+    <p><strong>Abstract:</strong> Raster dataset providing elevation values representing the terrain surface used for flood modelling, planning, and GIS analysis.</p>
     <p><strong>CRS:</strong> EPSG:4326</p>
-    <p><strong>Source:</strong> Use URL below to add WMS Server Connection:<br>
-    <code id="dem-url">https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial Datasets?service=WMS&request=getcapabilities&</code></p>
-    <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
-    <button class="download-link" onclick="copyToClipboard('dem-url')">Copy WMS URL</button>
+    <p><strong>Source:</strong> Cape Town Municipality WMS</p>
+    <p><strong>Credits:</strong> City of Cape Town GIS Department</p>
+    <a href="https://www.capetown.gov.za/dem-download" class="download-link" target="_blank" rel="noopener noreferrer">Download DEM</a>
   </div>
 
 </div>
 
 <script>
-  function copyToClipboard(id) {
-    const url = document.getElementById(id).textContent.trim();
-    navigator.clipboard.writeText(url).then(() => {
-      alert("WMS URL copied to clipboard!");
-    }).catch(err => {
-      alert("Failed to copy: " + err);
-    });
-  }
-
   function filterDatasets() {
-    const input = document.getElementById('searchInput').value.toLowerCase();
-    const datasets = document.getElementsByClassName('dataset');
-
-    for (let i = 0; i < datasets.length; i++) {
-      const dataset = datasets[i];
+    const filter = document.getElementById('searchInput').value.toLowerCase();
+    const datasets = document.querySelectorAll('.dataset');
+    datasets.forEach(dataset => {
       const text = dataset.textContent.toLowerCase();
-      dataset.style.display = text.includes(input) ? '' : 'none';
-    }
+      dataset.style.display = text.includes(filter) ? '' : 'none';
+    });
   }
 </script>
 
