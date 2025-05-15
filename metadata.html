@@ -69,10 +69,67 @@
 </header>
 
 <div class="container">
-  <!-- Your dataset sections stay the same below -->
-  <!-- (You can paste all your current dataset sections here — unchanged) -->
 
-  <!-- Example of just the Aerial Imagery section below for brevity -->
+  <div id="beacons" class="dataset">
+    <h2>Beacons</h2>
+    <p><strong>Title:</strong> Beacons</p>
+    <p><strong>Summary:</strong> Survey beacons in the Cape Town region used for geodetic referencing.</p>
+    <p><strong>Keywords:</strong> beacons, geodetic, reference, survey, control</p>
+    <p><strong>Abstract:</strong> This dataset includes fixed geodetic beacons across Cape Town used by surveyors and engineers for referencing precise locations. These points are essential for accurate land surveying and geospatial alignment.</p>
+    <p><strong>CRS:</strong> EPSG:4326</p>
+    <p><strong>Source:</strong> CDNGI QGIS Cloud WMS</p>
+    <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
+    <a href="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Beacons_COCT.zip" class="download-link" target="_blank" rel="noopener noreferrer" download>Download Shapefile ZIP</a>
+  </div>
+
+  <div id="allotment" class="dataset">
+    <h2>Allotment Township</h2>
+    <p><strong>Title:</strong> Allotment Township</p>
+    <p><strong>Summary:</strong> Defined allotments or townships demarcated within COCT boundaries.</p>
+    <p><strong>Keywords:</strong> allotment, township, urban, boundaries, planning</p>
+    <p><strong>Abstract:</strong> This layer shows administrative allotments and townships within the City of Cape Town for land use planning and cadastral referencing. It supports urban development and infrastructure projects.</p>
+    <p><strong>CRS:</strong> EPSG:4326</p>
+    <p><strong>Source:</strong> CDNGI QGIS Cloud WMS</p>
+    <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
+    <a href="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Allotment_Township_COCT.zip" class="download-link" target="_blank" rel="noopener noreferrer" download>Download Shapefile ZIP</a>
+  </div>
+
+  <div id="farms" class="dataset">
+    <h2>Farms</h2>
+    <p><strong>Title:</strong> Farms</p>
+    <p><strong>Summary:</strong> Farm parcel boundaries across the City of Cape Town region.</p>
+    <p><strong>Keywords:</strong> farms, agriculture, parcels, rural, boundaries</p>
+    <p><strong>Abstract:</strong> This dataset maps out registered farm properties and land parcels used for agricultural or rural purposes in the COCT region. It assists in rural land management and development control.</p>
+    <p><strong>CRS:</strong> EPSG:4326</p>
+    <p><strong>Source:</strong> CDNGI QGIS Cloud WMS</p>
+    <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
+    <a href="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Farms_COCT.zip" class="download-link" target="_blank" rel="noopener noreferrer" download>Download Shapefile ZIP</a>
+  </div>
+
+  <div id="lease" class="dataset">
+    <h2>Lease Area</h2>
+    <p><strong>Title:</strong> Lease Area</p>
+    <p><strong>Summary:</strong> Areas under leasehold, indicated for planning and management.</p>
+    <p><strong>Keywords:</strong> lease, land use, planning, contracts, municipal</p>
+    <p><strong>Abstract:</strong> This dataset represents municipal or private land parcels currently under lease agreements. It supports legal compliance, property management, and public sector planning.</p>
+    <p><strong>CRS:</strong> EPSG:4326</p>
+    <p><strong>Source:</strong> CDNGI QGIS Cloud WMS</p>
+    <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
+    <a href="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Lease_Area_COCT.zip" class="download-link" target="_blank" rel="noopener noreferrer" download>Download Shapefile ZIP</a>
+  </div>
+
+  <div id="streets" class="dataset">
+    <h2>Streets</h2>
+    <p><strong>Title:</strong> Streets</p>
+    <p><strong>Summary:</strong> Street centerlines within the COCT metropolitan area.</p>
+    <p><strong>Keywords:</strong> roads, streets, transportation, routing, urban</p>
+    <p><strong>Abstract:</strong> This line layer includes road and street centerlines across Cape Town, used for navigation, urban planning, emergency routing, and transport analysis.</p>
+    <p><strong>CRS:</strong> EPSG:4326</p>
+    <p><strong>Source:</strong> CDNGI QGIS Cloud WMS</p>
+    <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
+    <a href="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Streets_COCT.zip" class="download-link" target="_blank" rel="noopener noreferrer" download>Download Shapefile ZIP</a>
+  </div>
+
   <div id="aerial" class="dataset">
     <h2>Aerial Imagery</h2>
     <p><strong>Title:</strong> Aerial Imagery</p>
@@ -88,7 +145,20 @@
     </div>
   </div>
 
-  <!-- Add other datasets here as in your original HTML -->
+  <div id="dem" class="dataset">
+    <h2>Digital Elevation Model (DEM)</h2>
+    <p><strong>Title:</strong> Digital Elevation Model (DEM)</p>
+    <p><strong>Summary:</strong> Raster DEM showing elevation across Cape Town.</p>
+    <p><strong>Keywords:</strong> elevation, terrain, raster, surface, DEM</p>
+    <p><strong>Abstract:</strong> This dataset includes raster elevation data for the City of Cape Town, suitable for hydrology modeling, visibility analysis, and terrain understanding.</p>
+    <p><strong>CRS:</strong> EPSG:4326</p>
+    <p><strong>Source:</strong> Use URL below to add WMS Server Connection in ArcGIS Desktop, ArcPro, QGIS, AutoCAD, etc.<br>
+    <code id="dem-url">https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial Datasets?service=WMS&request=getcapabilities&</code></p>
+    <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
+    <div>
+      <button class="download-link" onclick="copyToClipboard('dem-url')">Copy WMS URL</button>
+    </div>
+  </div>
 
 </div>
 
