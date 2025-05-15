@@ -21,17 +21,28 @@
     }
     header img.logo-left {
       position: absolute;
-      top: 50%;
-      left: 2rem;
-      transform: translateY(-50%);
-      height: 50px;
+      top: 10px;
+      left: 10px;
+      height: 60px;
     }
     header img.logo-right {
       position: absolute;
-      top: 50%;
-      right: 2rem;
-      transform: translateY(-50%);
-      height: 50px;
+      top: 10px;
+      right: 10px;
+      height: 60px;
+    }
+    .search-container {
+      background-color: #e0e7ff;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    #searchInput {
+      width: 60%;
+      max-width: 500px;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
     }
     .container {
       max-width: 1000px;
@@ -71,10 +82,14 @@
 <body>
 
 <header>
-  <img src="https://wikiwandv2-19431.kxcdn.com/_next/image?url=https://upload.wikimedia.org/wikipedia/en/thumb/0/0b/CD_NGI_logo.svg/640px-CD_NGI_logo.svg.png&w=640&q=50" alt="CDNGI Logo" class="logo-left">
-  <img src="https://th.bing.com/th/id/R.b6aa4facbcaa25bad4dbe8695a706b6b?rik=9nrK7tipvjYmeA&riu=http%3a%2f%2fwww.govpage.co.za%2fuploads%2f2%2f4%2f0%2f5%2f24052997%2fagriculture-land-reform-rural-development_orig.png&ehk=Cq5906wSM7aqilFNKArVjBWmXtycMJJexz8dVzaWWPQ%3d&risl=&pid=ImgRaw&r=0" alt="DALRRD Logo" class="logo-right">
+  <img src="https://wikiwandv2-19431.kxcdn.com/_next/image?url=https://upload.wikimedia.org/wikipedia/en/thumb/0/0b/CD_NGI_logo.svg/640px-CD_NGI_logo.svg.png&w=640&q=50" class="logo-left" alt="CDNGI Logo">
+  <img src="https://th.bing.com/th/id/R.b6aa4facbcaa25bad4dbe8695a706b6b?rik=9nrK7tipvjYmeA&riu=http%3a%2f%2fwww.govpage.co.za%2fuploads%2f2%2f4%2f0%2f5%2f24052997%2fagriculture-land-reform-rural-development_orig.png&ehk=Cq5906wSM7aqilFNKArVjBWmXtycMJJexz8dVzaWWPQ%3d&risl=&pid=ImgRaw&r=0" class="logo-right" alt="DALRRD Logo">
   <h1>CDNGI Geoportal Metadata Catalogue</h1>
 </header>
+
+<div class="search-container">
+  <input type="text" id="searchInput" placeholder="Search datasets..." onkeyup="filterDatasets()">
+</div>
 
 <div class="container">
 
@@ -93,49 +108,49 @@
   <div id="allotment" class="dataset">
     <h2>Allotment Township</h2>
     <p><strong>Title:</strong> Allotment Township</p>
-    <p><strong>Summary:</strong> Defined allotments or townships demarcated within COCT boundaries.</p>
-    <p><strong>Keywords:</strong> allotment, township, urban, boundaries, planning</p>
-    <p><strong>Abstract:</strong> This layer shows administrative allotments and townships within the City of Cape Town for land use planning and cadastral referencing. It supports urban development and infrastructure projects.</p>
+    <p><strong>Summary:</strong> Urban land parcels allocated in Cape Town.</p>
+    <p><strong>Keywords:</strong> allotment, township, planning, parcels</p>
+    <p><strong>Abstract:</strong> Delineates legally defined land plots distributed for settlement or development in urban areas of Cape Town.</p>
     <p><strong>CRS:</strong> EPSG:4326</p>
     <p><strong>Source:</strong> CDNGI QGIS Cloud WMS</p>
-    <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
-    <a href="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Allotment_Township_COCT.zip" class="download-link" target="_blank" rel="noopener noreferrer" download>Download Shapefile ZIP</a>
+    <p><strong>Credits:</strong> Emily Wood</p>
+    <a href="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Allotment_Township.zip" class="download-link" download>Download Shapefile ZIP</a>
   </div>
 
   <div id="farms" class="dataset">
     <h2>Farms</h2>
     <p><strong>Title:</strong> Farms</p>
-    <p><strong>Summary:</strong> Farm parcel boundaries across the City of Cape Town region.</p>
-    <p><strong>Keywords:</strong> farms, agriculture, parcels, rural, boundaries</p>
-    <p><strong>Abstract:</strong> This dataset maps out registered farm properties and land parcels used for agricultural or rural purposes in the COCT region. It assists in rural land management and development control.</p>
+    <p><strong>Summary:</strong> Agricultural parcels and boundaries in Cape Town.</p>
+    <p><strong>Keywords:</strong> farms, rural, boundaries, agriculture</p>
+    <p><strong>Abstract:</strong> Shows registered agricultural farms and their spatial extents in the greater Cape Town area for rural planning and administration.</p>
     <p><strong>CRS:</strong> EPSG:4326</p>
     <p><strong>Source:</strong> CDNGI QGIS Cloud WMS</p>
-    <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
-    <a href="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Farms_COCT.zip" class="download-link" target="_blank" rel="noopener noreferrer" download>Download Shapefile ZIP</a>
+    <p><strong>Credits:</strong> Emily Wood</p>
+    <a href="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Farms.zip" class="download-link" download>Download Shapefile ZIP</a>
   </div>
 
   <div id="lease" class="dataset">
     <h2>Lease Area</h2>
     <p><strong>Title:</strong> Lease Area</p>
-    <p><strong>Summary:</strong> Areas under leasehold, indicated for planning and management.</p>
-    <p><strong>Keywords:</strong> lease, land use, planning, contracts, municipal</p>
-    <p><strong>Abstract:</strong> This dataset represents municipal or private land parcels currently under lease agreements. It supports legal compliance, property management, and public sector planning.</p>
+    <p><strong>Summary:</strong> Parcels of land leased to private entities.</p>
+    <p><strong>Keywords:</strong> lease, municipal, parcels, contracts</p>
+    <p><strong>Abstract:</strong> Identifies areas of land leased by the municipality for residential, commercial, or agricultural purposes, with legal boundary definitions.</p>
     <p><strong>CRS:</strong> EPSG:4326</p>
     <p><strong>Source:</strong> CDNGI QGIS Cloud WMS</p>
-    <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
-    <a href="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Lease_Area_COCT.zip" class="download-link" target="_blank" rel="noopener noreferrer" download>Download Shapefile ZIP</a>
+    <p><strong>Credits:</strong> Emily Wood</p>
+    <a href="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/LeaseArea.zip" class="download-link" download>Download Shapefile ZIP</a>
   </div>
 
   <div id="streets" class="dataset">
     <h2>Streets</h2>
     <p><strong>Title:</strong> Streets</p>
-    <p><strong>Summary:</strong> Street centerlines within the COCT metropolitan area.</p>
-    <p><strong>Keywords:</strong> roads, streets, transportation, routing, urban</p>
-    <p><strong>Abstract:</strong> This line layer includes road and street centerlines across Cape Town, used for navigation, urban planning, emergency routing, and transport analysis.</p>
+    <p><strong>Summary:</strong> Road network of the Cape Town metropolitan area.</p>
+    <p><strong>Keywords:</strong> streets, roads, transport, network</p>
+    <p><strong>Abstract:</strong> A polyline layer of all major and minor roads, including street names, classification, and connectivity, useful for navigation and city planning.</p>
     <p><strong>CRS:</strong> EPSG:4326</p>
     <p><strong>Source:</strong> CDNGI QGIS Cloud WMS</p>
-    <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
-    <a href="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Streets_COCT.zip" class="download-link" target="_blank" rel="noopener noreferrer" download>Download Shapefile ZIP</a>
+    <p><strong>Credits:</strong> Emily Wood</p>
+    <a href="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Streets.zip" class="download-link" download>Download Shapefile ZIP</a>
   </div>
 
   <div id="aerial" class="dataset">
@@ -145,12 +160,10 @@
     <p><strong>Keywords:</strong> imagery, aerial, orthophoto, tiles, remote sensing</p>
     <p><strong>Abstract:</strong> This service provides orthorectified high-resolution aerial photography of Cape Town for use in mapping, planning, and environmental analysis.</p>
     <p><strong>CRS:</strong> EPSG:4326</p>
-    <p><strong>Source:</strong> Use URL below to add WMS Server Connection in ArcGIS Desktop, ArcPro, QGIS, AutoCAD, etc.<br>
+    <p><strong>Source:</strong> Use URL below to add WMS Server Connection:<br>
     <code id="aerial-url">https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial Datasets?service=WMS&request=getcapabilities&</code></p>
     <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
-    <div>
-      <button class="download-link" onclick="copyToClipboard('aerial-url')">Copy WMS URL</button>
-    </div>
+    <button class="download-link" onclick="copyToClipboard('aerial-url')">Copy WMS URL</button>
   </div>
 
   <div id="dem" class="dataset">
@@ -160,12 +173,10 @@
     <p><strong>Keywords:</strong> elevation, terrain, raster, surface, DEM</p>
     <p><strong>Abstract:</strong> This dataset includes raster elevation data for the City of Cape Town, suitable for hydrology modeling, visibility analysis, and terrain understanding.</p>
     <p><strong>CRS:</strong> EPSG:4326</p>
-    <p><strong>Source:</strong> Use URL below to add WMS Server Connection in ArcGIS Desktop, ArcPro, QGIS, AutoCAD, etc.<br>
+    <p><strong>Source:</strong> Use URL below to add WMS Server Connection:<br>
     <code id="dem-url">https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial Datasets?service=WMS&request=getcapabilities&</code></p>
     <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
-    <div>
-      <button class="download-link" onclick="copyToClipboard('dem-url')">Copy WMS URL</button>
-    </div>
+    <button class="download-link" onclick="copyToClipboard('dem-url')">Copy WMS URL</button>
   </div>
 
 </div>
@@ -178,6 +189,17 @@
     }).catch(err => {
       alert("Failed to copy: " + err);
     });
+  }
+
+  function filterDatasets() {
+    const input = document.getElementById('searchInput').value.toLowerCase();
+    const datasets = document.getElementsByClassName('dataset');
+
+    for (let i = 0; i < datasets.length; i++) {
+      const dataset = datasets[i];
+      const text = dataset.textContent.toLowerCase();
+      dataset.style.display = text.includes(input) ? '' : 'none';
+    }
   }
 </script>
 
