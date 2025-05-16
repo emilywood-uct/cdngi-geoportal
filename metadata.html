@@ -192,7 +192,7 @@
     <p><strong>Keywords:</strong> streets, roads, transport, network</p>
     <p><strong>Abstract:</strong> A polyline layer of all major and minor roads, including street names, classification, and connectivity, useful for navigation and city planning.</p>
     <p><strong>CRS:</strong> EPSG:4326</p>
-    <p><strong>Source:</strong> CDNGI QGIS Cloud WMS</p>
+    <p><strong>Source:</strong> City of Cape Town Data Portal, the Shapefile can be downloaded directly below.</p>
     <p><strong>Credits:</strong> Emily Wood</p>
     <a href="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Streets_COCT.zip" class="download-link" download>Download Shapefile ZIP</a>
   </div>
@@ -204,7 +204,7 @@
     <p><strong>Keywords:</strong> imagery, aerial, orthophoto, tiles, remote sensing</p>
     <p><strong>Abstract:</strong> This service provides orthorectified high-resolution aerial photography of Cape Town for use in mapping, planning, and environmental analysis.</p>
     <p><strong>CRS:</strong> EPSG:4326</p>
-    <p><strong>Source:</strong> Use URL below to add WMS Server Connection:</p>
+    <p><strong>Source:</strong> Use URL below to add the COCT WMS Server Connection:</p>
     <code id="aerial-url">https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial Datasets?service=WMS&request=getcapabilities&</code>
     <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
     <button class="download-link" onclick="copyToClipboard('aerial-url')">Copy WMS URL</button>
@@ -217,7 +217,7 @@
     <p><strong>Keywords:</strong> elevation, terrain, raster, surface, DEM</p>
     <p><strong>Abstract:</strong> This dataset includes raster elevation data for the City of Cape Town, suitable for hydrology modeling, visibility analysis, and terrain understanding.</p>
     <p><strong>CRS:</strong> EPSG:4326</p>
-    <p><strong>Source:</strong> Use URL below to add WMS Server Connection:</p>
+    <p><strong>Source:</strong> Use URL below to add the COCT WMS Server Connection:</p>
     <code id="dem-url">https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial Datasets?service=WMS&request=getcapabilities&</code>
     <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
     <button class="download-link" onclick="copyToClipboard('dem-url')">Copy WMS URL</button>
@@ -230,9 +230,11 @@
     <p><strong>Keywords:</strong> topography, contour, terrain, elevation, map</p>
     <p><strong>Abstract:</strong> A vector representation of topographic elements including contour lines, rivers, and elevation points across the Cape Town region. Suitable for environmental and engineering assessments.</p>
     <p><strong>CRS:</strong> EPSG:4326</p>
-    <p><strong>Source:</strong> CDNGI QGIS Cloud WMS</p>
+    <p><strong>Source:</strong> Download the Shapefile directly or Use URL below to add the COCT WMS Server Connection:</p>
+    <code id="topological-url">https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial Datasets?service=WMS&request=getcapabilities&</code>
     <p><strong>Credits:</strong> Emily Wood</p>
     <a href="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Topological_Map_COCT.zip" class="download-link" download>Download Shapefile ZIP</a>
+    <button class="download-link" onclick="copyToClipboard('dem-url')">Copy WMS URL</button>
   </div>
 
   <div id="landcover" class="dataset">
