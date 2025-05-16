@@ -83,7 +83,6 @@
     <body>
         <div id="map">
         </div>
-
 	<div id="sidebar" class="sidebar" aria-hidden="true" role="complementary" aria-label="Metadata Catalogue">
 	  <button class="close-btn" aria-label="Close sidebar" onclick="closeSidebar()">×</button>
 	  <h2>Metadata Catalogue</h2>
@@ -827,11 +826,9 @@
             onEachFeature: pop_MapIndex_12,
             style: style_MapIndex_12_0,
         });
-
-	layer_MapIndex_8.on('click', function(e) {
+	layer_MapIndex_12.on('click', function(e) {
     		openSidebar(e.layer.feature.properties);
 	});
-
         bounds_group.addLayer(layer_MapIndex_12);
         map.addLayer(layer_MapIndex_12);
         function pop_AerialPhotographyIndex_13(feature, layer) {
@@ -891,8 +888,7 @@
             onEachFeature: pop_AerialPhotographyIndex_13,
             style: style_AerialPhotographyIndex_13_0,
         });
-
-	layer_AerialPhotographyIndex_9.on('click', function(e) {
+	layer_AerialPhotographyIndex_13.on('click', function(e) {
    		openSidebar(e.layer.feature.properties);
 	});
 
