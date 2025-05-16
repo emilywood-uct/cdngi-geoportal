@@ -770,6 +770,52 @@ var metadataControl = L.control({ position: 'bottomleft' });
             },
         });
         bounds_group.addLayer(layer_Beacons_11);
+	L.Control.BeaconSearch = L.Control.extend({
+	    onAdd: function(map) {
+	        let container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+	        container.style.backgroundColor = 'white';
+	        container.style.padding = '5px';
+	        container.style.cursor = 'pointer';
+	
+	        let button = L.DomUtil.create('button', '', container);
+	        button.innerHTML = '🔍 Search Beacon Type';
+	        button.style.border = 'none';
+	        button.style.background = 'white';
+	        button.style.cursor = 'pointer';
+	
+	        L.DomEvent.disableClickPropagation(container);  // Prevent map from handling button click
+	
+	        button.onclick = function() {
+	            let input = prompt("Enter Beacon Type (beacon_typ):");
+	            if (!input) return;
+	
+	            input = input.trim().toUpperCase();
+	            let found = false;
+	
+	            layer_Beacons_11.eachLayer(layer => {
+	                const beaconType = layer.feature.properties.beacon_typ;
+	                if (beaconType && beaconType.toUpperCase() === input) {
+	                    map.setView(layer.getLatLng(), 17);
+	                    layer.openPopup();
+	                    found = true;
+	                }
+	            });
+	
+	            if (!found) {
+	                alert("No beacon found with type: " + input);
+	            }
+	        };
+	
+	        return container;
+	    },
+	    onRemove: function(map) {}
+	});
+	
+	L.control.beaconSearch = function(opts) {
+	    return new L.Control.BeaconSearch(opts);
+	};
+	L.control.beaconSearch({ position: 'topleft' }).addTo(map);
+
         function pop_TownSurveyMarksTSM_12(feature, layer) {
             layer.on({
                 mouseout: function(e) {
