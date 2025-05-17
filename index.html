@@ -717,9 +717,6 @@ var metadataControl = L.control({ position: 'bottomleft' });
                     <tr>\
                         <td colspan="2">' + (feature.properties['tag_y'] !== null ? autolinker.link(String(feature.properties['tag_y']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
-		    <tr>\
-                        <td colspan="2">' + (feature.properties['tag_value'] !== null ? autolinker.link(String(feature.properties['tag_value']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['beacon_typ'] !== null ? autolinker.link(String(feature.properties['beacon_typ']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -751,7 +748,7 @@ var metadataControl = L.control({ position: 'bottomleft' });
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(0,0,0,1.0)',
-                interactive: true,
+                interactive: false,
             }
         }
         map.createPane('pane_Beacons_11');
@@ -759,7 +756,7 @@ var metadataControl = L.control({ position: 'bottomleft' });
         map.getPane('pane_Beacons_11').style['mix-blend-mode'] = 'normal';
         var layer_Beacons_11 = new L.geoJson(json_Beacons_11, {
             attribution: '',
-            interactive: true,
+            interactive: false,
             dataVar: 'json_Beacons_11',
             layerName: 'layer_Beacons_11',
             pane: 'pane_Beacons_11',
@@ -1051,14 +1048,16 @@ var metadataControl = L.control({ position: 'bottomleft' });
             initial: false,
             hideMarkerOnCollapse: true,
             propertyName: 'ofc_sbrb_n'}));
+	    textPlaceholder: 'Search Suburbs by Area Name'
         document.getElementsByClassName('search-button')[0].className +=
          ' fa fa-binoculars';
 	
 	map.addControl(new L.Control.Search({
-	    layer: layer_Beacons_11,
+	    layer: layer_MapIndex_13,
 	    initial: false,
 	    hideMarkerOnCollapse: true,
-	    propertyName: 'tag_value'
+	    propertyName: 'grid_cell'
+	    textPlaceholder: 'Search Grid by Cell Number'
 	}));
 	document.getElementsByClassName('search-button')[1].className += 
 	 ' fa fa-search';
