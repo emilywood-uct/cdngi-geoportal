@@ -717,6 +717,9 @@ var metadataControl = L.control({ position: 'bottomleft' });
                     <tr>\
                         <td colspan="2">' + (feature.properties['tag_y'] !== null ? autolinker.link(String(feature.properties['tag_y']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
+		    <tr>\
+                        <td colspan="2">' + (feature.properties['tag_value'] !== null ? autolinker.link(String(feature.properties['tag_value']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['beacon_typ'] !== null ? autolinker.link(String(feature.properties['beacon_typ']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
