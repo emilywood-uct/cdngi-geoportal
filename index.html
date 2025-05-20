@@ -19,10 +19,20 @@
       animation: fadeIn 2s ease-out forwards;
     }
 
-    /* Show dropdown when parent or dropdown is hovered */
+    /* Keep dropdown visible on hover or focus */
     .dropdown:hover .dropdown-menu,
     .dropdown:focus-within .dropdown-menu {
       display: block;
+    }
+
+    /* Smooth dropdown transition */
+    .dropdown-menu {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      pointer-events: auto;
     }
   </style>
 </head>
@@ -38,9 +48,9 @@
           <button class="text-gray-600 hover:text-blue-600 font-medium focus:outline-none">
             About
           </button>
-          <div class="dropdown-menu absolute hidden bg-white shadow-lg rounded mt-2 min-w-[200px] z-50">
-            <a href="about-project.html" target="_blank" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">About CDNGI Project</a>
-            <a href="what-we-do.html" target="_blank" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">What We Do</a>
+          <div class="dropdown-menu absolute hidden bg-white shadow-lg rounded mt-2 min-w-max z-50 py-2">
+            <a href="about-project.html" target="_blank" class="block px-4 py-2 whitespace-nowrap text-gray-700 hover:bg-blue-100">About CDNGI Project</a>
+            <a href="what-we-do.html" target="_blank" class="block px-4 py-2 whitespace-nowrap text-gray-700 hover:bg-blue-100">What We Do</a>
           </div>
         </div>
 
@@ -49,13 +59,13 @@
           <button class="text-gray-600 hover:text-blue-600 font-medium focus:outline-none">
             Data
           </button>
-          <div class="dropdown-menu absolute hidden bg-white shadow-lg rounded mt-2 min-w-[250px] z-50">
-            <a href="geodetic.html" target="_blank" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Geodetic and Control Data</a>
-            <a href="elevation.html" target="_blank" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Elevation Data</a>
-            <a href="imagery.html" target="_blank" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Aerial Imagery</a>
-            <a href="topo.html" target="_blank" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Topological Maps</a>
-            <a href="landcover.html" target="_blank" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Landcover Maps</a>
-            <a href="cadastral.html" target="_blank" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Cadastral Data</a>
+          <div class="dropdown-menu absolute hidden bg-white shadow-lg rounded mt-2 min-w-max z-50 py-2">
+            <a href="geodetic.html" target="_blank" class="block px-4 py-2 whitespace-nowrap text-gray-700 hover:bg-blue-100">Geodetic and Control Data</a>
+            <a href="elevation.html" target="_blank" class="block px-4 py-2 whitespace-nowrap text-gray-700 hover:bg-blue-100">Elevation Data</a>
+            <a href="imagery.html" target="_blank" class="block px-4 py-2 whitespace-nowrap text-gray-700 hover:bg-blue-100">Aerial Imagery</a>
+            <a href="topo.html" target="_blank" class="block px-4 py-2 whitespace-nowrap text-gray-700 hover:bg-blue-100">Topological Maps</a>
+            <a href="landcover.html" target="_blank" class="block px-4 py-2 whitespace-nowrap text-gray-700 hover:bg-blue-100">Landcover Maps</a>
+            <a href="cadastral.html" target="_blank" class="block px-4 py-2 whitespace-nowrap text-gray-700 hover:bg-blue-100">Cadastral Data</a>
           </div>
         </div>
 
@@ -66,7 +76,7 @@
     </div>
   </header>
 
-  <!-- Hero Section with Video Background -->
+  <!-- Hero Section -->
   <section class="relative h-screen w-full overflow-hidden pt-20">
     <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
       <source src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Geoportal_Homepage.mp4" type="video/mp4" />
@@ -83,7 +93,7 @@
     </div>
   </section>
 
-  <!-- Optional Content Section -->
+  <!-- Content Section -->
   <section class="bg-white py-16 px-6">
     <div class="max-w-5xl mx-auto text-center">
       <h3 class="text-2xl font-bold mb-4 text-gray-800">Explore Our Data</h3>
