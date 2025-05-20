@@ -43,64 +43,69 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-  <!-- Navbar -->
-  <header class="bg-white shadow fixed w-full z-50">
-    <div class="relative max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-      <!-- Logo on the left -->
+<!-- Navbar -->
+<header class="bg-white shadow fixed w-full z-50">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+    <!-- Logo on the left -->
     <a href="index.html" class="flex items-center space-x-2 z-10">
-      <img src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Logo.png" alt="CDNGI Geoportal Logo" class="h-10 w-auto">
-      <span class="text-xl font-bold text-blue-700">CDNGI Geoportal</span>
+      <img src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Logo.png" alt="CDNGI Geoportal Logo" class="h-10 w-auto" />
     </a>
-      <!-- Centered Navigation -->
-      <nav class="absolute left-1/2 transform -translate-x-1/2 space-x-6 flex items-center">
-        <!-- About Dropdown -->
-        <div class="relative dropdown">
-          <button class="text-gray-600 hover:text-blue-600 font-medium focus:outline-none">
-            About
-          </button>
-          <div class="dropdown-menu absolute bg-white shadow-lg rounded mt-2 z-50">
-            <a href="about-project.html" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:bg-blue-100">About CDNGI Project</a>
-            <a href="what-we-do.html" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:bg-blue-100">What We Do</a>
-          </div>
-        </div>
 
-        <!-- Data Dropdown -->
-        <div class="relative dropdown">
-          <button class="text-gray-600 hover:text-blue-600 font-medium focus:outline-none">
-            Data
-          </button>
-          <div class="dropdown-menu absolute bg-white shadow-lg rounded mt-2 z-50">
-            <a href="geodetic-control-data.html" target="_blank" class="text-gray-700 hover:bg-blue-100">Geodetic and Control Data</a>
-            <a href="elevation-data.html" target="_blank" class="text-gray-700 hover:bg-blue-100">Elevation Data</a>
-            <a href="aerial-imagery.html" target="_blank" class="text-gray-700 hover:bg-blue-100">Aerial Imagery</a>
-            <a href="topological-maps.html" target="_blank" class="text-gray-700 hover:bg-blue-100">Topological Maps</a>
-            <a href="landcover-maps.html" target="_blank" class="text-gray-700 hover:bg-blue-100">Landcover Maps</a>
-            <a href="cadastral-data.html" target="_blank" class="text-gray-700 hover:bg-blue-100">Cadastral Data</a>
-          </div>
-        </div>
+    <!-- Text on the right -->
+    <span class="text-xl font-bold text-blue-700 z-10">
+      CDNGI Geoportal
+    </span>
 
-        <!-- Metadata Catalogue -->
-        <a href="metadata.html" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 font-medium">
-          Metadata Catalogue
-        </a>
-
-        <!-- Interactive Map Dropdown -->
-        <div class="relative dropdown">
-          <button class="text-gray-600 hover:text-blue-600 font-medium focus:outline-none">
-            Interactive Map
-          </button>
-          <div class="dropdown-menu absolute bg-white shadow-lg rounded mt-2 z-50">
-            <a href="how-to-use-map.html" class="text-gray-700 hover:bg-blue-100">
-              How to use Interactive Map
-            </a>
-            <a href="map.html" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:bg-blue-100">
-              Launch Interactive Map
-            </a>
-          </div>
+    <!-- Centered Navigation -->
+    <nav class="absolute left-1/2 transform -translate-x-1/2 space-x-6 flex items-center z-20">
+      <!-- About Dropdown -->
+      <div class="relative dropdown">
+        <button class="text-gray-600 hover:text-blue-600 font-medium focus:outline-none">
+          About
+        </button>
+        <div class="dropdown-menu absolute bg-white shadow-lg rounded mt-2 z-50">
+          <a href="about-project.html" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:bg-blue-100">About CDNGI Project</a>
+          <a href="what-we-do.html" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:bg-blue-100">What We Do</a>
         </div>
-      </nav>
-    </div>
-  </header>
+      </div>
+
+      <!-- Data Dropdown -->
+      <div class="relative dropdown">
+        <button class="text-gray-600 hover:text-blue-600 font-medium focus:outline-none">
+          Data
+        </button>
+        <div class="dropdown-menu absolute bg-white shadow-lg rounded mt-2 z-50">
+          <a href="geodetic-control-data.html" target="_blank" class="text-gray-700 hover:bg-blue-100">Geodetic and Control Data</a>
+          <a href="elevation-data.html" target="_blank" class="text-gray-700 hover:bg-blue-100">Elevation Data</a>
+          <a href="aerial-imagery.html" target="_blank" class="text-gray-700 hover:bg-blue-100">Aerial Imagery</a>
+          <a href="topological-maps.html" target="_blank" class="text-gray-700 hover:bg-blue-100">Topological Maps</a>
+          <a href="landcover-maps.html" target="_blank" class="text-gray-700 hover:bg-blue-100">Landcover Maps</a>
+          <a href="cadastral-data.html" target="_blank" class="text-gray-700 hover:bg-blue-100">Cadastral Data</a>
+        </div>
+      </div>
+
+      <!-- Metadata Catalogue -->
+      <a href="metadata.html" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 font-medium">
+        Metadata Catalogue
+      </a>
+
+      <!-- Interactive Map Dropdown -->
+      <div class="relative dropdown">
+        <button class="text-gray-600 hover:text-blue-600 font-medium focus:outline-none">
+          Interactive Map
+        </button>
+        <div class="dropdown-menu absolute bg-white shadow-lg rounded mt-2 z-50">
+          <a href="how-to-use-map.html" class="text-gray-700 hover:bg-blue-100">
+            How to use Interactive Map
+          </a>
+          <a href="map.html" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:bg-blue-100">
+            Launch Interactive Map
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
 
   <section class="relative h-screen w-full overflow-hidden pt-20">
     <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
