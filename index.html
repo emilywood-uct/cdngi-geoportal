@@ -7,19 +7,37 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <style>
     html { scroll-behavior: smooth; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .fade-in { animation: fadeIn 2s ease-out forwards; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      animation: fadeIn 2s ease-out forwards;
+    }
+
     .dropdown-menu {
-      opacity: 0; visibility: hidden; pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
       transition: opacity 0.3s ease 0.2s, visibility 0.3s ease 0.2s;
-      min-width: 220px; white-space: nowrap;
+      min-width: 220px;
+      white-space: nowrap;
     }
+
     .dropdown-menu a {
-      display: block; padding: 0.5rem 1rem; white-space: nowrap;
+      display: block;
+      padding: 0.5rem 1rem;
+      white-space: nowrap;
     }
+
     .dropdown:hover .dropdown-menu,
     .dropdown:focus-within .dropdown-menu {
-      opacity: 1; visibility: visible; pointer-events: auto; transition-delay: 0s;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transition-delay: 0s;
     }
   </style>
 </head>
@@ -27,9 +45,12 @@
 
   <!-- Navbar -->
   <header class="bg-white shadow fixed w-full z-50">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-blue-700">CDNGI Geoportal</h1>
-      <nav class="relative space-x-6 flex items-center">
+    <div class="relative max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <!-- Logo on the left -->
+      <h1 class="text-2xl font-bold text-blue-700 z-10">CDNGI Geoportal</h1>
+
+      <!-- Centered Navigation -->
+      <nav class="absolute left-1/2 transform -translate-x-1/2 space-x-6 flex items-center">
         <!-- About Dropdown -->
         <div class="relative dropdown">
           <button class="text-gray-600 hover:text-blue-600 font-medium focus:outline-none">
@@ -37,7 +58,7 @@
           </button>
           <div class="dropdown-menu absolute bg-white shadow-lg rounded mt-2 z-50">
             <a href="about-project.html" target="_blank" rel="noopener noreferrer">About CDNGI Project</a>
-            <a href="what-we-do.html"     target="_blank" rel="noopener noreferrer">What We Do</a>
+            <a href="what-we-do.html" target="_blank" rel="noopener noreferrer">What We Do</a>
           </div>
         </div>
 
@@ -48,15 +69,15 @@
           </button>
           <div class="dropdown-menu absolute bg-white shadow-lg rounded mt-2 z-50">
             <a href="geodetic-control-data.html" target="_blank">Geodetic and Control Data</a>
-            <a href="elevation-data.html"       target="_blank">Elevation Data</a>
-            <a href="aerial-imagery.html"       target="_blank">Aerial Imagery</a>
-            <a href="topological-maps.html"     target="_blank">Topological Maps</a>
-            <a href="landcover-maps.html"       target="_blank">Landcover Maps</a>
-            <a href="cadastral-data.html"       target="_blank">Cadastral Data</a>
+            <a href="elevation-data.html" target="_blank">Elevation Data</a>
+            <a href="aerial-imagery.html" target="_blank">Aerial Imagery</a>
+            <a href="topological-maps.html" target="_blank">Topological Maps</a>
+            <a href="landcover-maps.html" target="_blank">Landcover Maps</a>
+            <a href="cadastral-data.html" target="_blank">Cadastral Data</a>
           </div>
         </div>
 
-        <!-- Metadata Catalogue Link -->
+        <!-- Metadata Catalogue -->
         <a href="metadata.html" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 font-medium">
           Metadata Catalogue
         </a>
