@@ -13,22 +13,25 @@
       padding: 0;
     }
 
-    header {
-      background-color: #1e3a8a;
-      color: white;
-      padding: 1rem 2rem;
-      text-align: center;
-      position: relative;
-    }
-
-    header img.logo-left {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      height: 60px;
-      width: 250px; /* Adjust this value to make it wider */
-      object-fit: contain; /* Ensures the image scales nicely */
-    }
+     header {
+    background-color: #1e3a8a;
+    color: white;
+    /* Remove vertical padding */
+    padding: 0 2rem;
+    text-align: center;
+    position: relative;
+    height: 60px; /* Fixed height to control header height */
+    line-height: 60px; /* Vertically center text if needed */
+  }
+  
+  header img.logo-left {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    height: 100%;  /* Fill the header height */
+    width: auto;   /* Maintain aspect ratio */
+    object-fit: contain;
+  }
 
     .search-container {
       background-color: #ccc;
