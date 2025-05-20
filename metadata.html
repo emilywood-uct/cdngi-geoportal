@@ -335,16 +335,17 @@
     });
   }
   
-  var beaconsMap = L.map('beacons-map').setView([-33.92, 18.42], 8);
+  const map = L.map('beacons-map').setView([-33.92, 18.42], 11);
+
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap'
-  }).addTo(beaconsMap);
+  }).addTo(map);
 
   L.tileLayer.wms('http://4.222.216.109:8080/geoserver/CDNGI_Workspace/wms?', {
     layers: 'CDNGI_Workspace:Beacons_COCT',
     format: 'image/png',
     transparent: true
-  }).addTo(beaconsMap);
+  }).addTo(map);
 
   var allotmentMap = L.map('allotment-map').setView([-33.92, 18.42], 8.5);       
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
