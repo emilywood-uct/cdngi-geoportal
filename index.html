@@ -9,9 +9,15 @@
     html {
       scroll-behavior: smooth;
     }
-    /* Dropdown delay fix */
-    .group:hover .group-hover\:block {
-      display: block;
+
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      animation: fadeIn 2s ease-out forwards;
     }
   </style>
 </head>
@@ -22,11 +28,12 @@
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
       <h1 class="text-2xl font-bold text-blue-700">CDNGI Geoportal</h1>
       <nav class="relative space-x-6 flex items-center">
-        
         <!-- About Dropdown -->
         <div class="relative group">
-          <button class="text-gray-600 hover:text-blue-600 font-medium focus:outline-none">About</button>
-          <div class="absolute hidden group-hover:block bg-white shadow-lg rounded mt-2 min-w-[200px] z-50">
+          <button class="text-gray-600 hover:text-blue-600 font-medium focus:outline-none">
+            About
+          </button>
+          <div class="absolute hidden group-hover:block bg-white shadow-lg rounded mt-2 min-w-[200px] z-50 transition duration-300">
             <a href="about-project.html" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">About CDNGI Project</a>
             <a href="what-we-do.html" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">What We Do</a>
           </div>
@@ -34,14 +41,16 @@
 
         <!-- Data Dropdown -->
         <div class="relative group">
-          <button class="text-gray-600 hover:text-blue-600 font-medium focus:outline-none">Data</button>
-          <div class="absolute hidden group-hover:block bg-white shadow-lg rounded mt-2 min-w-[240px] z-50">
-            <a href="geodetic-control.html" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Geodetic and Control Data</a>
-            <a href="elevation-data.html" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Elevation Data</a>
-            <a href="aerial-imagery.html" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Aerial Imagery</a>
-            <a href="topo-maps.html" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Topological Maps</a>
-            <a href="landcover.html" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Landcover Maps</a>
-            <a href="cadastral.html" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Cadastral Data</a>
+          <button class="text-gray-600 hover:text-blue-600 font-medium focus:outline-none">
+            Data
+          </button>
+          <div class="absolute hidden group-hover:block bg-white shadow-lg rounded mt-2 min-w-[250px] z-50 transition duration-300">
+            <a href="geodetic.html" target="_blank" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Geodetic and Control Data</a>
+            <a href="elevation.html" target="_blank" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Elevation Data</a>
+            <a href="imagery.html" target="_blank" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Aerial Imagery</a>
+            <a href="topo.html" target="_blank" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Topological Maps</a>
+            <a href="landcover.html" target="_blank" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Landcover Maps</a>
+            <a href="cadastral.html" target="_blank" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Cadastral Data</a>
           </div>
         </div>
 
@@ -52,19 +61,33 @@
     </div>
   </header>
 
-  <!-- Hero Section with Video Background -->
-  <section class="relative h-screen overflow-hidden pt-20">
+  <!-- Hero Section with Video Background and Welcome Text -->
+  <section class="relative h-screen w-full overflow-hidden pt-20">
+    <!-- Background Video -->
     <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
       <source src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Geoportal_Homepage.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
-    <div class="flex items-center justify-center h-full text-center px-4 bg-black bg-opacity-40">
-      <div class="text-white">
-        <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Welcome to the CDNGI Geoportal</h2>
-        <p class="text-lg md:text-xl">
-          A digital platform to explore South Africa's geospatial datasets, elevation models, aerial imagery, and more.
-        </p>
-      </div>
+
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-50 z-0"></div>
+
+    <!-- Welcome Text -->
+    <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 fade-in">
+      <h2 class="text-4xl md:text-5xl font-extrabold mb-4 text-white">Welcome to the CDNGI Geoportal</h2>
+      <p class="text-lg md:text-xl max-w-2xl text-white">
+        A digital platform to explore South Africa's geospatial datasets, elevation models, aerial imagery, and more.
+      </p>
+    </div>
+  </section>
+
+  <!-- Content Section Below (Optional) -->
+  <section class="bg-white py-16 px-6">
+    <div class="max-w-5xl mx-auto text-center">
+      <h3 class="text-2xl font-bold mb-4 text-gray-800">Explore Our Data</h3>
+      <p class="text-gray-600">
+        Use the navigation bar above to access aerial imagery, topographic maps, elevation data, and cadastral information.
+      </p>
     </div>
   </section>
 
