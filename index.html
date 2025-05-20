@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CDNGI Geoportal</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
   <style>
     html {
       scroll-behavior: smooth;
@@ -19,27 +22,45 @@
       <h1 class="text-2xl font-bold text-blue-700">CDNGI Geoportal</h1>
       <nav class="relative space-x-6 flex items-center">
         <!-- About Dropdown -->
-        <div class="relative inline-block">
-          <div class="group">
-            <button class="text-gray-600 hover:text-blue-600 font-medium focus:outline-none">
-              About
-            </button>
-            <div
-              class="absolute invisible opacity-0 group-hover:visible group-hover:opacity-100 bg-white shadow-lg rounded mt-2 min-w-[200px] z-50 transition-opacity duration-200"
+        <div class="relative inline-block group cursor-pointer">
+          <div class="text-gray-600 hover:text-blue-600 font-medium select-none">
+            About
+          </div>
+          <div
+            class="absolute invisible opacity-0 group-hover:visible group-hover:opacity-100 bg-white shadow-lg rounded mt-2 min-w-[200px] z-50 transition-opacity duration-200"
+          >
+            <a
+              href="about-project.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block px-4 py-2 text-gray-700 hover:bg-blue-100"
+              >About CDNGI Project</a
             >
-              <a href="about-project.html" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">
-                About CDNGI Project
-              </a>
-              <a href="what-we-do.html" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">
-                What We Do
-              </a>
-            </div>
+            <a
+              href="what-we-do.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block px-4 py-2 text-gray-700 hover:bg-blue-100"
+              >What We Do</a
+            >
           </div>
         </div>
 
         <!-- Other Tabs -->
-        <a href="metadata.html" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 font-medium">Metadata Catalogue</a>
-        <a href="map.html" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 font-medium">Interactive Map</a>
+        <a
+          href="metadata.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-gray-600 hover:text-blue-600 font-medium"
+          >Metadata Catalogue</a
+        >
+        <a
+          href="map.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-gray-600 hover:text-blue-600 font-medium"
+          >Interactive Map</a
+        >
       </nav>
     </div>
   </header>
@@ -47,10 +68,13 @@
   <!-- Hero Section -->
   <section class="bg-blue-100 py-28 text-center">
     <div class="max-w-3xl mx-auto px-4">
-      <h2 class="text-4xl font-extrabold text-blue-800 mb-4">Welcome to the CDNGI Geoportal</h2>
+      <h2 class="text-4xl font-extrabold text-blue-800 mb-4">
+        Welcome to the CDNGI Geoportal
+      </h2>
       <p class="text-lg text-blue-900">
-        A digital platform designed to provide access to topological maps, elevation models, and spatial datasets from
-        the Chief Directorate: National Geo-spatial Information (CDNGI).
+        A digital platform designed to provide access to topological maps,
+        elevation models, and spatial datasets from the Chief Directorate:
+        National Geo-spatial Information (CDNGI).
       </p>
     </div>
   </section>
