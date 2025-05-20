@@ -337,7 +337,7 @@
     attribution: '© OpenStreetMap'
   }).addTo(beaconsMap);
 
-  L.tileLayer.wms('http://4.222.216.109:8080/geoserver/CDNGI_Workspace/wms?', {
+  L.tileLayer.wms('http://4.222.216.109:8080/geoserver/ows?version=1.1.1/', {
     layers: 'CDNGI_Workspace:Beacons_COCT',
     format: 'image/png',
     transparent: true
@@ -348,7 +348,7 @@
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(allotmentMap);
 
-  L.tileLayer.wms('http://4.222.216.109:8080/geoserver/wms', {
+  L.tileLayer.wms('http://4.222.216.109:8080/geoserver/ows?version=1.1.1/', {
     layers: 'CDNGI_Workspace:Allotment_Township_COCT',
     format: 'image/png',
     transparent: true,
@@ -360,7 +360,7 @@
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(farmsMap);
 
-  L.tileLayer.wms('http://4.222.216.109:8080/geoserver/wms', {
+  L.tileLayer.wms('http://4.222.216.109:8080/geoserver/ows?version=1.1.1/', {
     layers: 'CDNGI_Workspace:Farms_COCT',
     format: 'image/png',
     transparent: true,
@@ -372,19 +372,19 @@
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(leaseMap);
 
-  L.tileLayer.wms('http://4.222.216.109:8080/geoserver/wms', {
+  L.tileLayer.wms('http://4.222.216.109:8080/geoserver/ows?version=1.1.1/s', {
     layers: 'CDNGI_Workspace:Lease_Area_COCT',
     format: 'image/png',
     transparent: true,
     attribution: "CDNGI"
   }).addTo(leaseMap); 
 
-  var streetsMap = L.map('lease-map').setView([-33.92, 18.42], 8.5);       
+  var streetsMap = L.map('streets-map').setView([-33.92, 18.42], 8.5);       
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(streetsMap);
 
-  L.tileLayer.wms('http://4.222.216.109:8080/geoserver/wms', {
+  L.tileLayer.wms('http://4.222.216.109:8080/geoserver/ows?version=1.1.1/', {
     layers: 'CDNGI_Workspace:Streets_COCT',
     format: 'image/png',
     transparent: true,
@@ -396,7 +396,7 @@
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(tsmMap);
 
-  L.tileLayer.wms('http://4.222.216.109:8080/geoserver/wms', {
+  L.tileLayer.wms('http://4.222.216.109:8080/geoserver/ows?version=1.1.1/', {
     layers: 'CDNGI_Workspace:Town_Survey_Marks_COCT',
     format: 'image/png',
     transparent: true,
@@ -408,7 +408,7 @@
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(suburbsMap);
 
-  L.tileLayer.wms('http://4.222.216.109:8080/geoserver/wms', {
+  L.tileLayer.wms('http://4.222.216.109:8080/geoserver/ows?version=1.1.1/', {
     layers: 'CDNGI_Workspace:Official_Planning_Suburbs',
     format: 'image/png',
     transparent: true,
