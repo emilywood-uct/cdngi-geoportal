@@ -5,18 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Metadata Catalogue | CDNGI Geoportal</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-<style>
-  .preview-map {
-    height: 300px;
-    margin-top: 1rem;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-  }
-</style>
-
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -141,27 +129,23 @@
 
 <div class="container">
 
-<div id="beacons" class="dataset">
-  <div class="dataset-header">Beacons</div>
-  <p><strong>Title:</strong> Beacons</p>
-  <p><strong>Summary:</strong> Survey beacons in the Cape Town region used for geodetic referencing.</p>
-  <p><strong>Keywords:</strong> beacons, geodetic, reference, survey, control</p>
-  <p><strong>Abstract:</strong> This dataset includes fixed geodetic beacons across Cape Town used by surveyors and engineers for referencing precise locations. These points are essential for accurate land surveying and geospatial alignment.</p>
-  <p><strong>CRS:</strong> EPSG:4326</p>
-  <p><strong>Source:</strong> CDNGI WMS Server</p>
-  <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
-
-  <!-- Mini Map Preview -->
-  <div id="beacons-map" class="preview-map"></div>
-
-  <p><strong>Download </strong>the Shapefile directly below or <strong>Add </strong>the CDNGI WMS/WFS Server Connection:</p>
-  <p>WMS URL: <code><a href="http://4.222.216.109:8080/geoserver/ows?version=1.1.1/" target="_blank" id="wms-beacons">http://4.222.216.109:8080/geoserver/ows?version=1.1.1/</a></code></p>
-  <p>WFS URL: <code><a href="http://4.222.216.109:8080/geoserver/ows?acceptversions=2.0.0/" target="_blank" id="wfs-beacons">http://4.222.216.109:8080/geoserver/ows?acceptversions=2.0.0/</a></code></p>
-  <a href="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Beacons_COCT.zip" class="download-link" download>Download Shapefile ZIP</a>
-  <button class="download-link" onclick="copyToClipboard('wms-beacons')">Copy WMS URL</button>
-  <button class="download-link" onclick="copyToClipboard('wfs-beacons')">Copy WFS URL</button>
-</div>
-
+  <div id="beacons" class="dataset">
+    <div class="dataset-header">Beacons</div>
+    <p><strong>Title:</strong> Beacons</p>
+    <p><strong>Summary:</strong> Survey beacons in the Cape Town region used for geodetic referencing.</p>
+    <p><strong>Keywords:</strong> beacons, geodetic, reference, survey, control</p>
+    <p><strong>Abstract:</strong> This dataset includes fixed geodetic beacons across Cape Town used by surveyors and engineers for referencing precise locations. These points are essential for accurate land surveying and geospatial alignment.</p>
+    <p><strong>CRS:</strong> EPSG:4326</p>
+    <p><strong>Source:</strong> CDNGI WMS Server</p>
+    <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
+    <p>&nbsp;</p>
+    <p><strong>Download </strong>the Shapefile directly below or <strong>Add </strong>the CDNGI WMS/WFS Server Connection:</p>
+    <p>WMS URL: <code><a href="http://4.222.216.109:8080/geoserver/ows?version=1.1.1/" target="_blank" id="wms-beacons">http://4.222.216.109:8080/geoserver/ows?version=1.1.1/</a></code></p>
+    <p>WFS URL: <code><a href="http://4.222.216.109:8080/geoserver/ows?acceptversions=2.0.0/" target="_blank" id="wfs-beacons">http://4.222.216.109:8080/geoserver/ows?acceptversions=2.0.0/</a></code></p>
+    <a href="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Beacons_COCT.zip" class="download-link" download>Download Shapefile ZIP</a>
+    <button class="download-link" onclick="copyToClipboard('wms-beacons')">Copy WMS URL</button>
+    <button class="download-link" onclick="copyToClipboard('wfs-beacons')">Copy WFS URL</button>
+  </div>
 
   <div id="allotment" class="dataset">
     <div class="dataset-header">Allotment Township</div>
@@ -340,18 +324,6 @@
     });
   }
 
-  const map = L.map('beacons-map').setView([-33.92, 18.42], 11);
-
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap'
-  }).addTo(map);
-
-  L.tileLayer.wms('http://4.222.216.109:8080/geoserver/CDNGI_Workspace/wms?', {
-    layers: 'CDNGI_Workspace:Beacons_COCT',
-    format: 'image/png',
-    transparent: true
-  }).addTo(map);
-
   function filterDatasets() {
     const input = document.getElementById('searchInput').value.toLowerCase();
     const datasets = document.getElementsByClassName('dataset');
@@ -381,5 +353,3 @@
 
 </body>
 </html>
-
-
