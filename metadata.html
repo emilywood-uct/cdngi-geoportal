@@ -333,14 +333,21 @@
       dataset.style.display = text.includes(input) ? '' : 'none';
     }
   }
-    window.addEventListener('DOMContentLoaded', () => {
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('searchInput');
+
     const urlParams = new URLSearchParams(window.location.search);
     const searchQuery = urlParams.get('search');
     if (searchQuery) {
-      const searchInput = document.getElementById('searchInput');
       searchInput.value = searchQuery;
       filterDatasets();
     }
+
+    // Filter automatically as user types
+    searchInput.addEventListener('input', () => {
+      filterDatasets();
+    });
   });
 </script>
 
