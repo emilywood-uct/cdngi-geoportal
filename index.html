@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CDNGI Geoportal</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Navbar -->
+  <header class="bg-white shadow fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-blue-700">CDNGI Geoportal</h1>
+      <nav class="space-x-6">
+        <a href="#about" class="text-gray-600 hover:text-blue-600 font-medium">About</a>
+        <a href="metadata.html" class="text-gray-600 hover:text-blue-600 font-medium">Metadata Catalogue</a>
+        <a href="map.html" class="text-gray-600 hover:text-blue-600 font-medium">Interactive Map</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-blue-100 py-28 text-center">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-4xl font-extrabold text-blue-800 mb-4">Welcome to the CDNGI Geoportal</h2>
+      <p class="text-lg text-blue-900">
+        A digital platform designed to provide access to topological maps, elevation models, and spatial datasets from
+        the Chief Directorate: National Geo-spatial Information (CDNGI).
+      </p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 px-6 max-w-5xl mx-auto">
+    <h3 class="text-3xl font-bold mb-6 text-blue-700">About the Project</h3>
+    <p class="text-gray-700 leading-relaxed text-lg">
+      This geoportal is part of a GIS project aimed at enabling users to explore and download spatial data related to South Africa’s geography and infrastructure.
+      It was developed using <strong>QGIS Cloud</strong>, <
