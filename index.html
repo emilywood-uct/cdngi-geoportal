@@ -6,45 +6,20 @@
   <title>CDNGI Geoportal</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
-    /* Fade-in animation */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .fade-in {
-      animation: fadeIn 2s ease-out forwards;
-    }
-
-    /* Dropdown delay & smooth show/hide */
+    html { scroll-behavior: smooth; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-in { animation: fadeIn 2s ease-out forwards; }
     .dropdown-menu {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
+      opacity: 0; visibility: hidden; pointer-events: none;
       transition: opacity 0.3s ease 0.2s, visibility 0.3s ease 0.2s;
-      min-width: 220px; /* Minimum width for dropdown */
-      white-space: nowrap; /* Prevent text wrapping */
+      min-width: 220px; white-space: nowrap;
     }
-
     .dropdown-menu a {
-      white-space: nowrap; /* Prevent dropdown links from wrapping */
-      display: block;
-      padding-left: 1rem;  /* Tailwind's px-4 */
-      padding-right: 1rem;
-      padding-top: 0.5rem; /* Tailwind's py-2 */
-      padding-bottom: 0.5rem;
+      display: block; padding: 0.5rem 1rem; white-space: nowrap;
     }
-
     .dropdown:hover .dropdown-menu,
     .dropdown:focus-within .dropdown-menu {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-      transition-delay: 0s;
+      opacity: 1; visibility: visible; pointer-events: auto; transition-delay: 0s;
     }
   </style>
 </head>
@@ -61,8 +36,8 @@
             About
           </button>
           <div class="dropdown-menu absolute bg-white shadow-lg rounded mt-2 z-50">
-            <a href="about-project.html" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:bg-blue-100">About CDNGI Project</a>
-            <a href="what-we-do.html" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:bg-blue-100">What We Do</a>
+            <a href="about-project.html" target="_blank" rel="noopener noreferrer">About CDNGI Project</a>
+            <a href="what-we-do.html"     target="_blank" rel="noopener noreferrer">What We Do</a>
           </div>
         </div>
 
@@ -72,34 +47,45 @@
             Data
           </button>
           <div class="dropdown-menu absolute bg-white shadow-lg rounded mt-2 z-50">
-            <a href="geodetic-control-data.html" target="_blank" class="text-gray-700 hover:bg-blue-100">Geodetic and Control Data</a>
-            <a href="elevation-data.html" target="_blank" class="text-gray-700 hover:bg-blue-100">Elevation Data</a>
-            <a href="aerial-imagery.html" target="_blank" class="text-gray-700 hover:bg-blue-100">Aerial Imagery</a>
-            <a href="topological-maps.html" target="_blank" class="text-gray-700 hover:bg-blue-100">Topological Maps</a>
-            <a href="landcover-maps.html" target="_blank" class="text-gray-700 hover:bg-blue-100">Landcover Maps</a>
-            <a href="cadastral-data.html" target="_blank" class="text-gray-700 hover:bg-blue-100">Cadastral Data</a>
+            <a href="geodetic-control-data.html" target="_blank">Geodetic and Control Data</a>
+            <a href="elevation-data.html"       target="_blank">Elevation Data</a>
+            <a href="aerial-imagery.html"       target="_blank">Aerial Imagery</a>
+            <a href="topological-maps.html"     target="_blank">Topological Maps</a>
+            <a href="landcover-maps.html"       target="_blank">Landcover Maps</a>
+            <a href="cadastral-data.html"       target="_blank">Cadastral Data</a>
           </div>
         </div>
 
-        <!-- Other Tabs -->
-        <a href="metadata.html" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 font-medium">Metadata Catalogue</a>
-        <a href="map.html" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 font-medium">Interactive Map</a>
+        <!-- Metadata Catalogue Link -->
+        <a href="metadata.html" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 font-medium">
+          Metadata Catalogue
+        </a>
+
+        <!-- Interactive Map Dropdown -->
+        <div class="relative dropdown">
+          <button class="text-gray-600 hover:text-blue-600 font-medium focus:outline-none">
+            Interactive Map
+          </button>
+          <div class="dropdown-menu absolute bg-white shadow-lg rounded mt-2 z-50">
+            <a href="how-to-use-map.html" class="text-gray-700 hover:bg-blue-100">
+              How to use Interactive Map
+            </a>
+            <a href="map.html" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:bg-blue-100">
+              Launch Interactive Map
+            </a>
+          </div>
+        </div>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section with Video Background and Welcome Text -->
+  <!-- Hero Section with Video Background -->
   <section class="relative h-screen w-full overflow-hidden pt-20">
-    <!-- Background Video -->
     <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
       <source src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Geoportal_Homepage.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
-
-    <!-- Overlay -->
     <div class="absolute inset-0 bg-black bg-opacity-50 z-0"></div>
-
-    <!-- Welcome Text -->
     <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 fade-in">
       <h2 class="text-4xl md:text-5xl font-extrabold mb-4 text-white">Welcome to the CDNGI Geoportal</h2>
       <p class="text-lg md:text-xl max-w-2xl text-white">
@@ -108,7 +94,7 @@
     </div>
   </section>
 
-  <!-- Content Section Below (Optional) -->
+  <!-- Content Section -->
   <section class="bg-white py-16 px-6">
     <div class="max-w-5xl mx-auto text-center">
       <h3 class="text-2xl font-bold mb-4 text-gray-800">Explore Our Data</h3>
