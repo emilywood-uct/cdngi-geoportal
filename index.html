@@ -12,6 +12,19 @@
     html {
       scroll-behavior: smooth;
     }
+    /* Dropdown delay */
+    .dropdown {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      transition-delay: 0.2s; /* delay hiding */
+    }
+    .group:hover .dropdown,
+    .group:focus-within .dropdown {
+      opacity: 1;
+      visibility: visible;
+      transition-delay: 0s; /* show immediately */
+    }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -27,7 +40,7 @@
             About
           </div>
           <div
-            class="absolute invisible opacity-0 group-hover:visible group-hover:opacity-100 bg-white shadow-lg rounded mt-2 min-w-[200px] z-50 transition-opacity duration-200"
+            class="dropdown absolute bg-white shadow-lg rounded mt-2 min-w-[200px] z-50"
           >
             <a
               href="about-project.html"
