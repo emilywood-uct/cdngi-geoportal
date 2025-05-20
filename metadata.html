@@ -333,6 +333,15 @@
       dataset.style.display = text.includes(input) ? '' : 'none';
     }
   }
+    window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchQuery = urlParams.get('search');
+    if (searchQuery) {
+      const searchInput = document.getElementById('searchInput');
+      searchInput.value = searchQuery;
+      filterDatasets();
+    }
+  });
 </script>
 
 </body>
