@@ -152,9 +152,11 @@ var logoControl = L.control({ position: 'bottomleft' });
 logoControl.onAdd = function (map) {
   var div = L.DomUtil.create('div', 'leaflet-logo');
   div.innerHTML = `
-    <img src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Logo.png"
-         alt="CDNGI Logo"
-         style="height: 80px; width: auto;" />
+    <a href="index.html">
+      <img src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Logo.png"
+           alt="CDNGI Logo"
+           style="height: 80px; width: auto; cursor: pointer;" />
+    </a>
   `;
   return div;
 };
