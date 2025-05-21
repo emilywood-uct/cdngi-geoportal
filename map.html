@@ -79,49 +79,65 @@
 	  text-decoration: underline;
 	}
 
-	#loading-screen {
+		#loading-screen {
 	  position: fixed;
 	  z-index: 9999;
-	  top: 0; left: 0;
+	  top: 0;
+	  left: 0;
 	  width: 100%;
 	  height: 100%;
 	  background-color: white;
 	  display: flex;
+	  flex-direction: column;
 	  align-items: center;
 	  justify-content: center;
-	  flex-direction: column;
-	  font-family: Arial, sans-serif;
+	  font-family: 'Segoe UI', Arial, sans-serif;
+	  transition: opacity 0.5s ease;
+	  text-align: center;
+	  padding: 2rem;
 	}
 	
 	#loading-screen h1 {
-	  font-size: 1.5rem;
+	  font-size: 1.75rem;
 	  color: #1e3a8a;
 	  margin-bottom: 1rem;
-	  text-align: center;
 	}
 	
 	#loading-screen img {
 	  height: 80px;
 	  width: auto;
-	}
-
-	#loading-screen {
-	  transition: opacity 0.5s ease;
+	  margin-top: 0.5rem;
 	}
 	
 	#loading-screen.hidden {
 	  opacity: 0;
 	  pointer-events: none;
 	}
+		
+	.spinner {
+	  border: 6px solid #f3f3f3; /* Light grey background */
+	  border-top: 6px solid #1e3a8a; /* Blue spinner color */
+	  border-radius: 50%;
+	  width: 50px;
+	  height: 50px;
+	  animation: spin 1s linear infinite;
+	  margin-bottom: 1rem; /* Space between spinner and text */
+	}
+	
+	/* Spinner animation */
+	@keyframes spin {
+	  0% { transform: rotate(0deg); }
+	  100% { transform: rotate(360deg); }
+	}
+
         </style>
         <title></title>
     </head>
     <body>
 	<div id="loading-screen">
-	<div id="loading-content">
-	    <h1>CD:NGI Project Geoportal Loading</h1>
-	    <img src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Logo.png" alt="CDNGI Logo" />
-	  </div>
+	  <div class="spinner"></div>
+	  <h1>CD:NGI Project Geoportal Loading</h1>
+	  <img src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Logo.png" alt="CDNGI Logo" />
 	</div>
 
         <div id="map">
