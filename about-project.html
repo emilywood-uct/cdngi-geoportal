@@ -1,17 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About CDNGI Project</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>html { scroll-behavior: smooth; }</style>
 </head>
-<body class="bg-gray-50 text-gray-800 px-6 py-10">
-  <div class="max-w-4xl mx-auto">
-    <h1 class="text-3xl font-bold text-blue-800 mb-4">About the CDNGI Geoportal Project</h1>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Navigation Header -->
+  <header class="bg-white shadow fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-blue-700">CDNGI Geoportal</h1>
+      <nav class="space-x-6 flex items-center">
+        <a href="index.html" class="text-gray-600 hover:text-blue-600 font-medium">Home</a>
+        <a href="metadata.html" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 font-medium">Metadata Catalogue</a>
+        <a href="map.html" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 font-medium">Interactive Map</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto px-4 pt-28 pb-12">
+    <h2 class="text-3xl font-bold text-blue-800 mb-4">About the CDNGI Geoportal Project</h2>
     <p class="text-lg text-gray-700">
       This geoportal project was developed to provide users with access to a wide range of spatial datasets curated by the Chief Directorate: National Geo-spatial Information (CDNGI). 
       It integrates open geospatial technologies and emphasizes transparency, data discoverability, and accessibility.
     </p>
-  </div>
+  </main>
+
 </body>
 </html>
