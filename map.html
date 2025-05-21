@@ -146,6 +146,21 @@
             zoomControl:false, maxZoom:28, minZoom:9
         })
 
+// Add logo above the metadata button
+var logoControl = L.control({ position: 'bottomleft' });
+
+logoControl.onAdd = function (map) {
+  var div = L.DomUtil.create('div', 'leaflet-logo');
+  div.innerHTML = `
+    <img src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Logo.png"
+         alt="CDNGI Logo"
+         style="height: 40px; width: auto; margin-bottom: 8px;" />
+  `;
+  return div;
+};
+
+logoControl.addTo(map);
+
 var metadataControl = L.control({ position: 'bottomleft' });
 
 	metadataControl.onAdd = function (map) {
