@@ -381,7 +381,7 @@ fetch('https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/beac
     }).addTo(beaconsMap);
   });
 
-     var allotmentMap = L.map('allotment-map', {
+    var allotmentMap = L.map('allotment-map', {
     center: [-33.92, 18.42],
     zoom: 8,
     minZoom: 8,
@@ -419,41 +419,41 @@ fetch('https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/beac
     });
   
     var farmsMap = L.map('farms-map', {
-      center: [-33.92, 18.42],
-      zoom: 8,
-      minZoom: 6,
-      maxZoom: 15,
-      maxBounds: [
-        [-34.5, 17.5],
-        [-33.0, 19.5]
-      ]
+    center: [-33.92, 18.42],
+    zoom: 8,
+    minZoom: 8,
+    maxZoom: 10,
+    maxBounds: [
+      [-34.5, 17.5],
+      [-33.0, 19.5]
+    ]
+  });
+
+  // Base OSM layer
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(farmstMap);
+
+  fetch('https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/farms.geojson')
+    .then(response => response.json())
+    .then(data => {
+      L.geoJSON(data, {
+        style: {
+          color: '#2e8b57',        
+          weight: 2,
+          fillColor: '#77dd77',     
+          fillOpacity: 0.6
+        },
+        onEachFeature: function (feature, layer) {
+          let popupText = "Farms";
+          if (feature.properties && feature.properties.name) {
+            popupText += ": " + feature.properties.name;
+          }
+          layer.bindPopup(popupText);
+        }
+      }).addTo(farmsMap);
     });
   
-    // Base OSM layer
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(farmsMap);
-  
-    // Load and style the Farms GeoJSON
-    fetch('https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/farms.geojson')
-      .then(response => response.json())
-      .then(data => {
-        L.geoJSON(data, {
-          style: {
-            color: '#2e8b57',         // Border color (dark green)
-            weight: 2,
-            fillColor: '#77dd77',     // Pastel green fill
-            fillOpacity: 0.6
-          },
-          onEachFeature: function (feature, layer) {
-            let popupText = "Farm";
-            if (feature.properties && feature.properties.name) {
-              popupText += ": " + feature.properties.name;
-            }
-            layer.bindPopup(popupText);
-          }
-        }).addTo(farmsMap);
-      });
   function filterDatasets() {
     const input = document.getElementById('searchInput').value.toLowerCase();
     const datasets = document.getElementsByClassName('dataset');
