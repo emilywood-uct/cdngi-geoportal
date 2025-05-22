@@ -381,7 +381,7 @@ fetch('https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/beac
     }).addTo(beaconsMap);
   });
 
-    var allotmentMap = L.map('allotment-map', {
+     var allotmentMap = L.map('allotment-map', {
     center: [-33.92, 18.42],
     zoom: 8,
     minZoom: 6,
@@ -392,21 +392,21 @@ fetch('https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/beac
     ]
   });
 
-  // Base layer
+  // Base OSM layer
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(allotmentMap);
 
-  // Allotment GeoJSON overlay
+  // Load and style the Allotment GeoJSON
   fetch('https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/allotment.geojson')
     .then(response => response.json())
     .then(data => {
       L.geoJSON(data, {
         style: {
-          color: '#336699',
+          color: '#996515',         // Border color (dark mustard)
           weight: 2,
-          fillColor: '#99ccee',
-          fillOpacity: 0.5
+          fillColor: '#FFDB58',     // Mustard fill color
+          fillOpacity: 0.6
         },
         onEachFeature: function (feature, layer) {
           let popupText = "Allotment";
