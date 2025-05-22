@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Metadata Catalogue | CDNGI Geoportal</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <style>
+    .preview-map {
+      height: 300px;
+      margin-top: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+  </style>
+
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -116,6 +128,14 @@
       border-radius: 4px;
       overflow-wrap: break-word;
     }
+
+    .beacon-icon {
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 10px solid black;  /* upward pointing triangle */
+    }
   </style>
 </head>
 <body>
@@ -140,7 +160,7 @@
     <p><strong>CRS:</strong> EPSG:4326</p>
     <p><strong>Source:</strong> CDNGI WMS Server</p>
     <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
-    <p>&nbsp;</p>
+    <div id="beacons-map" class="preview-map"></div>
     <p><strong>Download </strong>the Shapefile directly below or <strong>Add </strong>the CDNGI WMS/WFS Server Connection:</p>
     <p>WMS URL: <code><a href="http://4.222.216.109:8080/geoserver/ows?version=1.1.1/" target="_blank" id="wms-beacons">http://4.222.216.109:8080/geoserver/ows?version=1.1.1/</a></code></p>
     <p>WFS URL: <code><a href="http://4.222.216.109:8080/geoserver/ows?acceptversions=2.0.0/" target="_blank" id="wfs-beacons">http://4.222.216.109:8080/geoserver/ows?acceptversions=2.0.0/</a></code></p>
@@ -326,6 +346,41 @@
     });
   }
 
+  var beaconsMap = L.map('beacons-map', {
+  center: [-33.92, 18.42],
+  zoom: 9,
+  minZoom: 8,
+  maxZoom: 15,
+  maxBounds: [
+    [-34.5, 17.5],  // Southwest corner (lat, lng)
+    [-33.0, 19.5]   // Northeast corner (lat, lng)
+  ]
+});
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap'
+}).addTo(beaconsMap);
+
+fetch('https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/beacons.geojson')
+  .then(response => response.json())
+  .then(data => {
+    L.geoJSON(data, {
+      pointToLayer: function (feature, latlng) {
+        return L.marker(latlng, {
+          icon: L.divIcon({
+            className: 'beacon-icon',
+            iconSize: [1, 0.5]
+          })
+        });
+      },
+      onEachFeature: function (feature, layer) {
+        if (feature.properties && feature.properties.name) {
+          layer.bindPopup(feature.properties.name);
+        }
+      }
+    }).addTo(beaconsMap);
+  });
+  
   function filterDatasets() {
     const input = document.getElementById('searchInput').value.toLowerCase();
     const datasets = document.getElementsByClassName('dataset');
