@@ -250,7 +250,7 @@
     <p><strong>CRS:</strong> EPSG:4326</p>
     <p><strong>Source:</strong> CDNGI WMS Server</p>
     <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
-    <p>&nbsp;</p>
+    <div id="tsm-map" class="preview-map"></div>
     <p><strong>Download </strong>the Shapefile directly below or <strong>Add </strong>the CDNGI WMS/WFS Server Connection:</p>
     <p>WMS URL: <code><a href="http://4.222.216.109:8080/geoserver/ows?version=1.1.1/" target="_blank" id="wms-tsm">http://4.222.216.109:8080/geoserver/ows?version=1.1.1/</a></code></p>
     <p>WFS URL: <code><a href="http://4.222.216.109:8080/geoserver/ows?acceptversions=2.0.0/" target="_blank" id="wfs-tsm">http://4.222.216.109:8080/geoserver/ows?acceptversions=2.0.0/</a></code></p>
@@ -268,7 +268,7 @@
     <p><strong>CRS:</strong> EPSG:4326</p>
     <p><strong>Source:</strong> CDNGI WMS Server</p>
     <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
-    <p>&nbsp;</p>
+    <div id="suburbs-map" class="preview-map"></div>
     <p><strong>Download </strong>the Shapefile directly below or <strong>Add </strong>the CDNGI WMS/WFS Server Connection:</p>
     <p>WMS URL: <code><a href="http://4.222.216.109:8080/geoserver/ows?version=1.1.1/" target="_blank" id="wms-suburbs">http://4.222.216.109:8080/geoserver/ows?version=1.1.1/</a></code></p>
     <p>WFS URL: <code><a href="http://4.222.216.109:8080/geoserver/ows?acceptversions=2.0.0/" target="_blank" id="wfs-suburbs">http://4.222.216.109:8080/geoserver/ows?acceptversions=2.0.0/</a></code></p>
@@ -385,7 +385,7 @@ fetch('https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/beac
     center: [-33.92, 18.42],
     zoom: 9,
     minZoom: 8,
-    maxZoom: 10,
+    maxZoom: 15,
     maxBounds: [
       [-34.5, 17.5],
       [-33.0, 19.5]
@@ -420,9 +420,9 @@ fetch('https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/beac
   
     var farmsMap = L.map('farms-map', {
     center: [-33.92, 18.42],
-    zoom: 8,
+    zoom: 9,
     minZoom: 8,
-    maxZoom: 10,
+    maxZoom: 15,
     maxBounds: [
       [-34.5, 17.5],
       [-33.0, 19.5]
@@ -458,7 +458,7 @@ fetch('https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/beac
     center: [-33.92, 18.42],
     zoom: 9,
     minZoom: 8,
-    maxZoom: 10,
+    maxZoom: 15,
     maxBounds: [
       [-34.5, 17.5],
       [-33.0, 19.5]
@@ -489,6 +489,75 @@ fetch('https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/beac
         }
       }).addTo(leaseMap);
     });
+
+    var tsmMap = L.map('tsm-map', {
+      center: [-33.92, 18.42],
+      zoom: 8,
+      minZoom: 7,
+      maxZoom: 14
+    });
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap'
+    }).addTo(tsmMap);
+    
+    fetch('https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/tsm.geojson')
+      .then(response => response.json())
+      .then(data => {
+        L.geoJSON(data, {
+          pointToLayer: function (feature, latlng) {
+            return L.circleMarker(latlng, {
+              radius: 5,
+              fillColor: '#0047AB', // cobalt blue
+              color: 'white',       // thin white border
+              weight: 1,
+              opacity: 1,
+              fillOpacity: 0.8
+            });
+          },
+          onEachFeature: function (feature, layer) {
+            if (feature.properties && feature.properties.name) {
+              layer.bindPopup(feature.properties.name);
+            }
+          }
+        }).addTo(tsmMap);
+      });
+
+  var suburbsMap = L.map('suburbs-map', {
+    center: [-33.92, 18.42],
+    zoom: 9,
+    minZoom: 8,
+    maxZoom: 15,
+    maxBounds: [
+      [-34.5, 17.5],
+      [-33.0, 19.5]
+    ]
+  });
+
+  // Base OSM layer
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(suburbsMap);
+
+  fetch('https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/suburbs.geojson')
+    .then(response => response.json())
+    .then(data => {
+      L.geoJSON(data, {
+        style: {
+          color: '#8B7D6B',        
+          weight: 2,
+          fillColor: '#C2B280',     
+          fillOpacity: 0.6
+        },
+        onEachFeature: function (feature, layer) {
+          let popupText = "Lease";
+          if (feature.properties && feature.properties.name) {
+            popupText += ": " + feature.properties.name;
+          }
+          layer.bindPopup(popupText);
+        }
+      }).addTo(suburbsMap);
+    });
+  
   function filterDatasets() {
     const input = document.getElementById('searchInput').value.toLowerCase();
     const datasets = document.getElementsByClassName('dataset');
