@@ -196,7 +196,7 @@
     <p><strong>CRS:</strong> EPSG:4326</p>
     <p><strong>Source:</strong> CDNGI WMS Server</p>
     <p><strong>Credits:</strong> Emily Wood, Ben Pretorius</p>
-    <p>&nbsp;</p>
+    <div id="farms-map" style="height: 500px;"></div>
     <p><strong>Download </strong>the Shapefile directly below or <strong>Add </strong>the CDNGI WMS/WFS Server Connection:</p>
     <p>WMS URL: <code><a href="http://4.222.216.109:8080/geoserver/ows?version=1.1.1/" target="_blank" id="wms-farms">http://4.222.216.109:8080/geoserver/ows?version=1.1.1/</a></code></p>
     <p>WFS URL: <code><a href="http://4.222.216.109:8080/geoserver/ows?acceptversions=2.0.0/" target="_blank" id="wfs-farms">http://4.222.216.109:8080/geoserver/ows?acceptversions=2.0.0/</a></code></p>
@@ -418,6 +418,42 @@ fetch('https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/beac
       }).addTo(allotmentMap);
     });
   
+    var farmsMap = L.map('farms-map', {
+      center: [-33.92, 18.42],
+      zoom: 8,
+      minZoom: 6,
+      maxZoom: 15,
+      maxBounds: [
+        [-34.5, 17.5],
+        [-33.0, 19.5]
+      ]
+    });
+  
+    // Base OSM layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(farmsMap);
+  
+    // Load and style the Farms GeoJSON
+    fetch('https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/farms.geojson')
+      .then(response => response.json())
+      .then(data => {
+        L.geoJSON(data, {
+          style: {
+            color: '#2e8b57',         // Border color (dark green)
+            weight: 2,
+            fillColor: '#77dd77',     // Pastel green fill
+            fillOpacity: 0.6
+          },
+          onEachFeature: function (feature, layer) {
+            let popupText = "Farm";
+            if (feature.properties && feature.properties.name) {
+              popupText += ": " + feature.properties.name;
+            }
+            layer.bindPopup(popupText);
+          }
+        }).addTo(farmsMap);
+      });
   function filterDatasets() {
     const input = document.getElementById('searchInput').value.toLowerCase();
     const datasets = document.getElementsByClassName('dataset');
