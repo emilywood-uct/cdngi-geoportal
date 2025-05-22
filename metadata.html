@@ -510,9 +510,9 @@ fetch('https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/beac
         L.geoJSON(data, {
           pointToLayer: function (feature, latlng) {
             return L.circleMarker(latlng, {
-              radius: 5,
+              radius: 3,
               fillColor: '#0047AB', // cobalt blue
-              color: 'white',       // thin white border
+              color: 'blue',       // thin white border
               weight: 1,
               opacity: 1,
               fillOpacity: 0.8
