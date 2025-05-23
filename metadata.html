@@ -286,7 +286,7 @@
     <p><strong>CRS:</strong> EPSG:4326</p>
     <p><strong>Source:</strong> Use the URL below to add the COCT WMS Server Connection:</p>
     <p><strong>Credits:</strong> COCT WMS Server</p>
-    <p>&nbsp;</p>
+    <div id="aerial-map" class="preview-map"></div>
     <p>WMS URL: <code><a href="https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial Datasets" target="_blank" id="aerial-url">https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial Datasets/</a></code></p>
     <button class="download-link" onclick="copyToClipboard('aerial-url')">Copy WMS URL</button>
   </div>
@@ -330,7 +330,7 @@
     <p><strong>Source:</strong> Use the URL below to add the COCT WMS Server Connection:</p>
     <p><strong>Credits:</strong> COCT WMS Server</p>
     <p>&nbsp;</p>
-    <p>WMS URL: <code><a href="https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial Datasets?service=WMS&request=getcapabilities&" target="_blank" id="https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial Datasets1/</a></code></p>
+    <p>WMS URL: <code><a href="https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial Datasets?service=WMS&request=getcapabilities&" target="_blank" id="landcover-url">https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial Datasets/</a></code></p>
     <button class="download-link" onclick="copyToClipboard('landcover-url')">Copy WMS URL</button>
   </div>
 
@@ -561,6 +561,32 @@ fetch('https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/beac
         }
       }).addTo(suburbsMap);
     });
+  
+    var aerialMap = L.map('aerial-map', {
+    center: [-33.92, 18.42],
+    zoom: 9,
+    minZoom: 8,
+    maxZoom: 15,
+    maxBounds: [
+      [-34.5, 17.5],
+      [-33.0, 19.5]
+    ]
+  });
+
+  // Base OSM layer
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(aerialMap);
+
+  // Add City of Cape Town Aerial Imagery 2023Jan WMS layer
+  L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets', {
+    layers: 'Aerial Imagery_Aerial Imagery 2023Jan',
+    format: 'image/jpeg',
+    transparent: false, // it's a basemap
+    version: '1.1.1',
+    tiled: true,
+    attribution: '&copy; City of Cape Town'
+  }).addTo(aerialMap);
   
   function filterDatasets() {
     const input = document.getElementById('searchInput').value.toLowerCase();
