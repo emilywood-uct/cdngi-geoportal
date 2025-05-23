@@ -314,7 +314,7 @@
     <p><strong>CRS:</strong> EPSG:4326</p>
     <p><strong>Source:</strong> Download the Shapefile directly below or Add the COCT WMS Server Connection:</p>
     <p><strong>Credits:</strong> COCT WMS Server</p>
-    <p>&nbsp;</p>
+    <div id="topo-map" class="preview-map"></div>
     <p>WMS URL: <code><a href="https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial Datasets?service=WMS&request=getcapabilities&" target="_blank" id="topological-url">https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial Datasets/</a></code></p>
     <a href="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Topological_Map_COCT.zip" class="download-link" download>Download Shapefile ZIP</a>
     <button class="download-link" onclick="copyToClipboard('topological-url')">Copy WMS URL</button>
@@ -612,6 +612,31 @@ fetch('https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/beac
     tiled: true,
     attribution: '&copy; City of Cape Town'
   }).addTo(demMap);
+
+    var topoMap = L.map('topo-map', {
+    center: [-33.92, 18.42],
+    zoom: 9,
+    minZoom: 8,
+    maxZoom: 15,
+    maxBounds: [
+      [-34.5, 17.5],
+      [-33.0, 19.5]
+    ]
+  });
+
+  // Base OSM layer
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(topoMap);
+
+  L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets', {
+    layers: 'Topo 1990_1:50 000',
+    format: 'image/jpeg',
+    transparent: false, // it's a basemap
+    version: '1.1.1',
+    tiled: true,
+    attribution: '&copy; City of Cape Town'
+  }).addTo(topoMap);
   
   function filterDatasets() {
     const input = document.getElementById('searchInput').value.toLowerCase();
