@@ -652,7 +652,7 @@ fetch('https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/beac
   // Base OSM layer
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors'
-  }).addTo(topoMap);
+  }).addTo(landMap);
 
   L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets', {
     layers: 'Backdrops_SANLC_South African National Land Cover_2020',
