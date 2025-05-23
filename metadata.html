@@ -300,7 +300,7 @@
     <p><strong>CRS:</strong> EPSG:4326</p>
     <p><strong>Source:</strong> Use the URL below to add the COCT WMS Server Connection:</p>
     <p><strong>Credits:</strong> COCT WMS Server</p>
-    <p>&nbsp;</p>
+    <div id="dem-map" class="preview-map"></div>
     <p>WMS URL: <code><a href="https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial Datasets?service=WMS&request=getcapabilities&" target="_blank" id="dem-url">https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial Datasets/</a></code></p>
     <button class="download-link" onclick="copyToClipboard('dem-url')">Copy WMS URL</button>
   </div>
@@ -587,6 +587,31 @@ fetch('https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/beac
     tiled: true,
     attribution: '&copy; City of Cape Town'
   }).addTo(aerialMap);
+
+      var demMap = L.map('dem-map', {
+    center: [-33.92, 18.42],
+    zoom: 9,
+    minZoom: 8,
+    maxZoom: 15,
+    maxBounds: [
+      [-34.5, 17.5],
+      [-33.0, 19.5]
+    ]
+  });
+
+  // Base OSM layer
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(demMap);
+
+  L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets', {
+    layers: 'DTM_2m',
+    format: 'image/jpeg',
+    transparent: false, // it's a basemap
+    version: '1.1.1',
+    tiled: true,
+    attribution: '&copy; City of Cape Town'
+  }).addTo(demMap);
   
   function filterDatasets() {
     const input = document.getElementById('searchInput').value.toLowerCase();
