@@ -588,7 +588,7 @@ fetch('https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/beac
     attribution: '&copy; City of Cape Town'
   }).addTo(aerialMap);
 
-      var demMap = L.map('dem-map', {
+    var demMap = L.map('dem-map', {
     center: [-33.92, 18.42],
     zoom: 9,
     minZoom: 8,
@@ -605,7 +605,7 @@ fetch('https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/beac
   }).addTo(demMap);
 
   L.tileLayer.wms('https://cityimg.capetown.gov.za/erdas-iws/ogc/wms/GeoSpatial%20Datasets', {
-    layers: 'DTM_2m',
+    layers: 'Elevation_DTM_2m',
     format: 'image/jpeg',
     transparent: false, // it's a basemap
     version: '1.1.1',
