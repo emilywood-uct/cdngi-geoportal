@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Geoportal Creation Process | CDNGI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>html { scroll-behavior: smooth; }</style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Navigation Header -->
+  <header class="bg-white shadow fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <img src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Logo.png" alt="CDNGI Logo" class="h-12 w-auto" />
+        <h1 class="text-2xl font-bold text-blue-700">CDNGI Geoportal</h1>
+      </div>
+      <nav class="space-x-6 flex items-center">
+        <a href="index.html" class="text-gray-600 hover:text-blue-600 font-medium">Home</a>
+        <a href="metadata.html" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 font-medium">Metadata Catalogue</a>
+        <a href="map.html" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 font-medium">Interactive Map</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto px-4 pt-28 pb-16">
+    <h2 class="text-3xl font-bold text-blue-800 mb-6">How the Geoportal Was Created</h2>
+
+    <p class="text-lg text-gray-700 mb-6">
+      The development of the CDNGI Geoportal followed a structured process designed to implement a fully functional Spatial Data Infrastructure (SDI) for Cape Town. The process ensured that spatial datasets were not only accessible, but also usable, interoperable, and standards-compliant.
+    </p>
+
+    <ol class="list-decimal list-inside text-gray-700 space-y-4 text-lg">
+      <li>
+        <strong>Data Collection & Preparation:</strong>
+        Datasets including aerial imagery, DEMs, cadastral boundaries, and control points were sourced, cleaned, and stored in a spatially enabled database hosted on QGIS Cloud.
+      </li>
+      <li>
+        <strong>GeoServer & WMS/WFS Configuration:</strong>
+        Using QGIS Cloud's built-in GeoServer, datasets were published as WMS (Web Map Services) and WFS (Web Feature Services) for consumption in GIS applications and the web.
+      </li>
+      <li>
+        <strong>Metadata Catalogue:</strong>
+        A metadata system was designed to describe datasets using standardized fields such as title, summary, keywords, coordinate reference system, and source.
+      </li>
+      <li>
+        <strong>Interactive Web Map:</strong>
+        The front-end map was developed using Leaflet.js, enabling users to explore spatial layers interactively. Features like index grids and clickable tiles allow users to access dataset metadata and download links.
+      </li>
+      <li>
+        <strong>Geoportal Integration:</strong>
+        All components—map viewer, metadata catalogue, and download functionality—were integrated into a single cohesive platform with a clean, accessible user interface built with HTML and Tailwind CSS.
+      </li>
+    </ol>
+
+    <p class="text-lg text-gray-700 mt-8">
+      The result is a modern, open-access Geoportal supporting spatial data discovery, visualization, and download—custom-built for the case study area and fully aligned with SDI principles.
+    </p>
+
+    <div class="text-center mt-12">
+      <a href="about-project.html" class="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-blue-700 transition">
+        ← Back to Overview
+      </a>
+    </div>
+  </main>
+
+</body>
+</html>
