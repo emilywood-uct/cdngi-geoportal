@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cadastral Maps | CDNGI Geoportal</title>
+  <title>Cadastral Data | CDNGI Geoportal</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     html { scroll-behavior: smooth; }
@@ -11,6 +11,7 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
+  <!-- Header -->
   <header class="bg-white shadow fixed w-full z-50">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
       <img src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Logo.png" alt="CDNGI Logo" class="h-12 w-auto" />
@@ -23,14 +24,26 @@
     </div>
   </header>
 
+  <!-- Main Content -->
   <main class="max-w-5xl mx-auto px-4 pt-28 pb-12">
     <h2 class="text-3xl font-bold text-blue-800 mb-6">Cadastral Maps</h2>
-    <p class="mb-4">
-      Cadastral Maps display detailed property boundaries, parcel identifiers, and land ownership information. These maps are essential for land administration, legal documentation, and property development.
+
+    <p class="mb-4 text-gray-700">
+      Cadastral maps provide authoritative information on land parcels, including boundaries, legal subdivisions, and property identification. This data is critical for land ownership verification, property valuation, and spatial planning.
     </p>
-    <p>
-      <strong>How to access the data:</strong> Access cadastral datasets via the Metadata Catalogue or interactively explore parcels using the Interactive Map tool.
+
+    <p class="mb-6 text-gray-700">
+      The CDNGI Geoportal offers cadastral data for the Cape Town study area, which includes <strong>Farms</strong>, <strong>Lease Areas</strong>, <strong>Allotment Township</strong>, and <strong>Suburb boundaries</strong>. These layers support municipal management, urban expansion, and legal referencing.
     </p>
+
+    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 shadow-sm">
+      <p class="text-yellow-800 text-lg">
+        View cadastral boundaries and land parcel details interactively using the 
+        <a href="map.html" target="_blank" class="text-yellow-700 font-semibold hover:underline">Interactive Map</a>, 
+        or download structured data and metadata through the 
+        <a href="metadata.html" target="_blank" class="text-yellow-700 font-semibold hover:underline">Metadata Catalogue</a>.
+      </p>
+    </div>
   </main>
 
 </body>
