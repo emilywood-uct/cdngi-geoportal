@@ -139,7 +139,7 @@
 
 	/* Add spacing below the first search dropdown to avoid overlap */
 	.leaflet-control-search {
-	  margin-bottom: 48px; /* Add space between multiple search bars */
+	  margin-bottom: 60px; /* Add space between multiple search bars */
 	}
 		
         </style>
@@ -1168,8 +1168,8 @@ var metadataControl = L.control({ position: 'bottomleft' });
 	    if (searchButtons.length > 1) {
 	        searchButtons[1].classList.add('fa', 'fa-hashtag'); // or 'fa-th' for a grid
 	    }
-	    if (searchInputs.length > 2) {
-	        searchInputs[2].setAttribute('placeholder', 'Search Grid Number...');
+	    if (searchInputs.length > 0) {
+	        searchInputs[0].setAttribute('placeholder', 'Search Grid Number...');
 	    }
 	}, 100);
 
