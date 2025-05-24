@@ -138,8 +138,8 @@
 	}
 
 	/* Add spacing below the first search dropdown to avoid overlap */
-	.leaflet-control-search:nth-of-type(1) .search-wrap {
-	  margin-bottom: 40px; /* adjust as needed */
+	.leaflet-control-search {
+	  margin-bottom: 16px; /* Add space between multiple search bars */
 	}
 		
         </style>
@@ -1133,22 +1133,46 @@ var metadataControl = L.control({ position: 'bottomleft' });
         lay.addTo(map);
         setBounds();
 		
-        map.addControl(new L.Control.Search({
-            layer: layer_Suburbs_1,
-            initial: false,
-            hideMarkerOnCollapse: true,
-            propertyName: 'ofc_sbrb_n'}));
-        document.getElementsByClassName('search-button')[0].className += ' fa fa-search';
-	document.querySelectorAll('.search-input')[0].setAttribute('placeholder', 'Search Suburbs...');
-		
-	map.addControl(new L.Control.Search({
+	// Add Suburbs search control
+	const suburbSearch = new L.Control.Search({
+	    layer: layer_Suburbs_1,
+	    initial: false,
+	    hideMarkerOnCollapse: true,
+	    propertyName: 'ofc_sbrb_n'
+	});
+	map.addControl(suburbSearch);
+	
+	// Add Grid Index search control
+	const gridSearch = new L.Control.Search({
 	    layer: layer_MapIndex_13,
 	    initial: false,
 	    hideMarkerOnCollapse: true,
 	    propertyName: 'gdo_gid'
-	}));
-	document.getElementsByClassName('search-button')[1].className += ' fa fa-border-all';
-	document.querySelectorAll('.search-input')[1].setAttribute('placeholder', 'Search Grid Number...');
+	});
+	map.addControl(gridSearch);
+	
+	// Wait for both search controls to render before customizing
+	setTimeout(() => {
+	    const searchButtons = document.getElementsByClassName('search-button');
+	    const searchInputs = document.querySelectorAll('.search-input');
+	
+	    // Suburbs search icon and placeholder
+	    if (searchButtons.length > 0) {
+	        searchButtons[0].classList.add('fa', 'fa-search');
+	    }
+	    if (searchInputs.length > 0) {
+	        searchInputs[0].setAttribute('placeholder', 'Search Suburbs...');
+	    }
+	
+	    // Grid index search icon and placeholder
+	    if (searchButtons.length > 1) {
+	        searchButtons[1].classList.add('fa', 'fa-hashtag'); // or 'fa-th' for a grid
+	    }
+	    if (searchInputs.length > 1) {
+	        searchInputs[1].setAttribute('placeholder', 'Search Grid Number...');
+	    }
+	}, 100);
+
 		
 	function openSidebar() {
 	  document.getElementById('sidebar').classList.add('open');
