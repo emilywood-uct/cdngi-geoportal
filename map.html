@@ -137,6 +137,11 @@
 	  pointer-events: none;
 	}
 
+	/* Add spacing below the first search dropdown to avoid overlap */
+	.leaflet-control-search:nth-of-type(1) .search-wrap {
+	  margin-bottom: 40px; /* adjust as needed */
+	}
+		
         </style>
         <title></title>
     </head>
@@ -1127,22 +1132,23 @@ var metadataControl = L.control({ position: 'bottomleft' });
         });
         lay.addTo(map);
         setBounds();
+		
         map.addControl(new L.Control.Search({
             layer: layer_Suburbs_1,
             initial: false,
             hideMarkerOnCollapse: true,
             propertyName: 'ofc_sbrb_n'}));
-        document.getElementsByClassName('search-button')[0].className +=
-         ' fa fa-binoculars';
-	
+        document.getElementsByClassName('search-button')[0].className += ' fa fa-search';
+	document.querySelectorAll('.search-input')[0].setAttribute('placeholder', 'Search Suburbs...');
+		
 	map.addControl(new L.Control.Search({
 	    layer: layer_MapIndex_13,
 	    initial: false,
 	    hideMarkerOnCollapse: true,
 	    propertyName: 'gdo_gid'
 	}));
-	document.getElementsByClassName('search-button')[1].className += 
-	 ' fa fa-search';
+	document.getElementsByClassName('search-button')[1].className += ' fa fa-border-all';
+	document.querySelectorAll('.search-input')[1].setAttribute('placeholder', 'Search Grid Number...');
 		
 	function openSidebar() {
 	  document.getElementById('sidebar').classList.add('open');
