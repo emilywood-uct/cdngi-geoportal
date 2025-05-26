@@ -245,6 +245,13 @@
 	
 	map.addControl(new HighlightToggle());
 		
+	map.whenReady(function () {
+	        const loadingScreen = document.getElementById('loading-screen');
+	        if (loadingScreen) {
+	            loadingScreen.classList.add('hidden'); // Fades out
+	            setTimeout(() => loadingScreen.remove(), 500); // Removes it from DOM
+	        }
+	    });		
 // Add logo above the metadata button
 var logoControl = L.control({ position: 'bottomleft' });
 
