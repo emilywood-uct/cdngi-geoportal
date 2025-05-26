@@ -201,26 +201,50 @@
         <script src="data/MapIndex_13.js"></script>
         <script src="data/AerialPhotographyIndex_14.js"></script>
         <script>
-        var highlightLayer;
-        function highlightFeature(e) {
-            highlightLayer = e.target;
+        var highlightEnabled = true;  // toggle flag to enable/disable highlighting
 
-            if (e.target.feature.geometry.type === 'LineString' || e.target.feature.geometry.type === 'MultiLineString') {
-              highlightLayer.setStyle({
-                color: '#ffff00',
-              });
-            } else {
-              highlightLayer.setStyle({
-                fillColor: '#ffff00',
-                fillOpacity: 1
-              });
-            }
-            highlightLayer.openPopup();
-        }
-        var map = L.map('map', {
-            zoomControl:false, maxZoom:28, minZoom:9
-        })
-
+	function highlightFeature(e) {
+	    if (!highlightEnabled) return;  // Skip highlight if toggled off
+	
+	    var layer = e.target;
+	    if (layer.feature.geometry.type === 'LineString' || layer.feature.geometry.type === 'MultiLineString') {
+	        layer.setStyle({
+	            color: '#ffff00',
+	        });
+	    } else {
+	        layer.setStyle({
+	            fillColor: '#ffff00',
+	            fillOpacity: 1,
+	        });
+	    }
+	    layer.openPopup();
+	}
+	const HighlightToggle = L.Control.extend({
+	    options: { position: 'topleft' },
+	    onAdd: function (map) {
+	        const container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+	        const button = L.DomUtil.create('a', '', container);
+	        button.innerHTML = '🔆';
+	        button.href = '#';
+	        button.title = 'Toggle Highlighting';
+	
+	        // Initial style
+	        button.style.backgroundColor = '#f0f9ff';
+	
+	        L.DomEvent.on(button, 'click', function (e) {
+	            L.DomEvent.preventDefault(e);
+	
+	            highlightEnabled = !highlightEnabled;
+	
+	            button.style.backgroundColor = highlightEnabled ? '#f0f9ff' : '#e2e8f0';
+	        });
+	
+	        return container;
+	    }
+	});
+	
+	map.addControl(new HighlightToggle());
+		
 // Add logo above the metadata button
 var logoControl = L.control({ position: 'bottomleft' });
 
@@ -962,20 +986,22 @@ var metadataControl = L.control({ position: 'bottomleft' });
         bounds_group.addLayer(layer_TownSurveyMarksTSM_12);
         function pop_MapIndex_13(feature, layer) {
             layer.on({
-                mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
+		mouseout: function(e) {
+		    if (!highlightEnabled) return;  // Skip reset if toggled off
+		
+		    for (var i in e.target._eventParents) {
+		        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+		            e.target._eventParents[i].resetStyle(e.target);
+		        }
+		    }
+		    if (typeof layer.closePopup == 'function') {
+		        layer.closePopup();
+		    } else {
+		        layer.eachLayer(function(feature){
+		            feature.closePopup();
+		        });
+		    }
+		},
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
@@ -1026,20 +1052,22 @@ var metadataControl = L.control({ position: 'bottomleft' });
         map.addLayer(layer_MapIndex_13);
         function pop_AerialPhotographyIndex_14(feature, layer) {
             layer.on({
-                mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
+		mouseout: function(e) {
+		    if (!highlightEnabled) return;  // Skip reset if toggled off
+		
+		    for (var i in e.target._eventParents) {
+		        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+		            e.target._eventParents[i].resetStyle(e.target);
+		        }
+		    }
+		    if (typeof layer.closePopup == 'function') {
+		        layer.closePopup();
+		    } else {
+		        layer.eachLayer(function(feature){
+		            feature.closePopup();
+		        });
+		    }
+		},
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
