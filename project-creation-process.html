@@ -34,24 +34,49 @@
 
     <ol class="list-decimal list-inside text-gray-700 space-y-4 text-lg">
       <li>
-        <strong>Data Collection & Preparation:</strong>
-        Datasets including aerial imagery, DEMs, cadastral boundaries, and control points were sourced, cleaned, and stored in a spatially enabled database hosted on QGIS Cloud.
+        <strong>Define Project Scope and Data Needs:</strong>
+        Identified the case study focus (CDNGI) and determined that spatial data should include Geodetic and Control, Topographic, Aerial Imagery, Elevation Data, Land Cover, and Cadastral Data relevant to Cape Town.
       </li>
       <li>
-        <strong>GeoServer & WMS/WFS Configuration:</strong>
-        Using QGIS Cloud's built-in GeoServer, datasets were published as WMS (Web Map Services) and WFS (Web Feature Services) for consumption in GIS applications and the web.
+        <strong>Acquire and Organize Spatial Data:</strong>
+        Sourced data from the UCT Geomatics File Server and the City of Cape Town (COCT) Open Data Portal. Due to size constraints, COCT WMS services were used for large datasets such as Aerial Imagery, Digital Elevation Models (DEMs), and Land Cover Maps.
       </li>
       <li>
-        <strong>Metadata Catalogue:</strong>
-        A metadata system was designed to describe datasets using standardized fields such as title, summary, keywords, coordinate reference system, and source.
+        <strong>Refine and Preprocess Data:</strong>
+        Imported datasets into ArcGIS Pro. Used Batch Clip to limit all spatial layers to the Cape Town study area, reducing file sizes to align with the storage limitations of GitHub and QGIS Cloud.
       </li>
       <li>
-        <strong>Interactive Web Map:</strong>
-        The front-end map was developed using Leaflet.js, enabling users to explore spatial layers interactively. Features like index grids and clickable tiles allow users to access dataset metadata and download links.
+        <strong>Provision a Cloud-Based Virtual Machine:</strong>
+        Created a free-tier Microsoft Azure Virtual Machine (VM) running Ubuntu. Configured the VM to allow external access via a static public IP address and opened necessary ports (e.g., 8080) to support GeoServer web services.
       </li>
       <li>
-        <strong>Geoportal Integration:</strong>
-        All components—map viewer, metadata catalogue, and download functionality—were integrated into a single cohesive platform with a clean, accessible user interface built with HTML and Tailwind CSS.
+        <strong>Set Up and Publish via GeoServer:</strong>
+        Installed GeoServer on the Azure VM. Uploaded spatial data and configured WMS and WFS services for public access. Validated the services using both QGIS and ArcGIS Pro.
+      </li>
+      <li>
+        <strong>Build the Metadata Catalogue:</strong>
+        Developed a custom HTML-based metadata catalogue hosted on GitHub Pages. Included fields such as title, keywords, description, and CRS. Embedded WMS/WFS links and download buttons for shapefiles. Added Leaflet-based map previews using GeoJSON or WMS layers.
+      </li>
+      <li>
+        <strong>Create the Interactive Web Map:</strong>
+        Styled and compiled spatial layers in QGIS. Used the QGIS Cloud plugin to publish the project and generate a public WMS. Exported the styled map using qgis2web into a Leaflet-based interactive map. Added custom interactivity and styling via HTML, CSS, and JavaScript, including:
+        <ul class="list-disc list-inside pl-6">
+          <li>Grid cell selection and highlighting</li>
+          <li>Metadata side-pane integration</li>
+          <li>Layer controls, search, geolocation, and dynamic grid indexing</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Integrate and Link All System Components:</strong>
+        Connected the interactive map to the metadata catalogue through clickable grid cells that open context-specific side panes. The website homepage features clear launch buttons and navigation links to the map and catalogue. Ensured smooth, modular transitions between components, all hosted and accessible via GitHub Pages.
+      </li>
+      <li>
+        <strong>Develop and Deploy the Geoportal Website:</strong>
+        Hand-coded a custom HTML website, hosted on GitHub, serving as the central entry point. Designed a clean layout with a navigation bar, launch buttons, project background, dataset information, and a “How to Use” guide. Maintained stylistic and structural consistency across all web components.
+      </li>
+      <li>
+        <strong>Test and Finalize the Geoportal:</strong>
+        Performed browser-based testing and external access validation. Ensured all components—metadata links, WMS/WFS services, previews, downloads, and navigation—function correctly from any device with internet access.
       </li>
     </ol>
 
