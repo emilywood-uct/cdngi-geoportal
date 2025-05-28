@@ -26,55 +26,55 @@
 
   <!-- Main Content -->
   <main class="max-w-5xl mx-auto px-4 pt-28 pb-12">
-    <h2 class="text-3xl font-bold text-blue-800 mb-6">How to Use the Interactive Map</h2>
-    <p class="mb-4">
-      The Interactive Map allows users to visually explore spatial datasets hosted on the CDNGI Geoportal. This includes aerial imagery, topographic maps, elevation models, cadastral data, and more. Each dataset is organized by geographic grid tiles covering South Africa.
+    <h2 class="text-3xl font-bold text-blue-800 mb-8">How to Use the Interactive Map</h2>
+    <p class="mb-6 leading-relaxed text-lg">
+      The Interactive Map allows users to visually explore spatial datasets hosted on the CDNGI Geoportal, including aerial imagery, topographic maps, elevation models, cadastral data, and more. Each dataset is organized by geographic grid tiles covering South Africa.
     </p>
-    <p class="mb-4">
-      To effectively use the map, follow the steps below to familiarize yourself with all its features and functionality:
+    <p class="mb-10 leading-relaxed text-lg">
+      Below are the main features and functionalities to help you get the most out of the map interface:
     </p>
 
-    <ol class="list-decimal list-inside space-y-6 text-gray-700">
-      <li>
-        <h3 class="font-semibold text-lg mb-2">Searching by Suburb Name</h3>
-        <p class="mb-2">To search for spatial data in a specific suburb:</p>
-        <ul class="list-disc list-inside ml-5 space-y-1">
-          <li>Click the magnifying glass icon in the top-right corner of the map interface.</li>
-          <li>A search bar will appear. Start typing the name of the suburb you are interested in (e.g., "Claremont").</li>
-          <li>Select the matching result from the dropdown list.</li>
-          <li>The map will automatically zoom into the selected suburb, allowing you to explore the datasets available in that area.</li>
-        </ul>
-        <p class="mt-2 italic text-sm text-gray-600">This is useful for locating spatial data in a known suburb without manually navigating the map.</p>
-      </li>
+    <div class="space-y-10 text-gray-700">
 
-      <li>
-        <h3 class="font-semibold text-lg mb-2">Searching by Grid Number</h3>
-        <p class="mb-2">To locate data using a specific map grid cell number:</p>
+      <section>
+        <h3 class="font-semibold text-xl text-blue-700 mb-3">Searching by Suburb Name</h3>
+        <p class="mb-3">To find spatial data within a specific suburb:</p>
         <ul class="list-disc list-inside ml-5 space-y-1">
-          <li>Click the grid search icon (typically represented by a numbered square symbol).</li>
-          <li>Enter the grid cell number (e.g., "B14") into the input box.</li>
-          <li>The map will highlight and zoom to the corresponding grid cell.</li>
+          <li>Click the magnifying glass icon in the top-right corner of the map.</li>
+          <li>Start typing the suburb name (e.g., <em>Claremont</em>) in the search bar that appears.</li>
+          <li>Select the correct result from the dropdown list.</li>
+          <li>The map will zoom in automatically to your chosen suburb, revealing available datasets in that area.</li>
         </ul>
-        <p class="mt-2 italic text-sm text-gray-600">This is helpful if you already know your area of interest by grid reference, or if using referenced metadata.</p>
-      </li>
+        <p class="mt-2 italic text-sm text-gray-600">Useful for quickly locating known suburbs without manual navigation.</p>
+      </section>
 
-      <li>
-        <h3 class="font-semibold text-lg mb-2">Viewing Grid Numbers on Hover</h3>
-        <p class="mb-2">Each grid cell has a visible number displayed in a popup when hovered over or clicked:</p>
+      <section>
+        <h3 class="font-semibold text-xl text-blue-700 mb-3">Searching by Grid Number</h3>
+        <p class="mb-3">If you know the specific map grid cell number:</p>
         <ul class="list-disc list-inside ml-5 space-y-1">
-          <li>Move your mouse over a grid cell to see its grid cell number appear.</li>
-          <li>Use this number to search the grid directly or match with metadata entries.</li>
+          <li>Click the grid search icon (usually a numbered square symbol).</li>
+          <li>Enter the grid cell identifier (e.g., <em>B14</em>).</li>
+          <li>The map will highlight and zoom to that grid cell.</li>
         </ul>
-        <p class="mt-2 italic text-sm text-gray-600">This is useful for identifying and referencing areas when downloading datasets.</p>
-      </li>
+        <p class="mt-2 italic text-sm text-gray-600">Ideal for users working with referenced metadata or grid-based locations.</p>
+      </section>
 
-      <li>
-        <h3 class="font-semibold text-lg mb-2">Accessing Metadata Through Grid Clicking</h3>
-        <p class="mb-2">Each grid cell on the map links directly to relevant spatial datasets:</p>
+      <section>
+        <h3 class="font-semibold text-xl text-blue-700 mb-3">Viewing Grid Numbers on Hover</h3>
+        <p class="mb-3">Hovering over a grid cell reveals its number:</p>
         <ul class="list-disc list-inside ml-5 space-y-1">
-          <li>Click on any grid cell on the map.</li>
-          <li>A side pane will slide open from the right.</li>
-          <li>This pane displays dataset categories available in the selected grid, such as:
+          <li>Move your cursor over any grid cell to display its number in a popup.</li>
+          <li>Use these numbers for searching or matching datasets with metadata.</li>
+        </ul>
+        <p class="mt-2 italic text-sm text-gray-600">Helpful for identifying and referencing specific map areas.</p>
+      </section>
+
+      <section>
+        <h3 class="font-semibold text-xl text-blue-700 mb-3">Accessing Metadata Through Grid Clicking</h3>
+        <p class="mb-3">Click on any grid cell to explore linked datasets:</p>
+        <ul class="list-disc list-inside ml-5 space-y-1">
+          <li>A side pane will slide in from the right.</li>
+          <li>This pane lists dataset categories available in the selected grid, such as:
             <ul class="list-disc list-inside ml-5 space-y-1 mt-1">
               <li>Aerial Imagery</li>
               <li>Elevation Data</li>
@@ -85,73 +85,67 @@
               <li>Streets</li>
             </ul>
           </li>
-          <li>Click on any category in the list to be taken to the corresponding dataset’s metadata entry in the catalogue.</li>
-          <li>From the catalogue, you can:
-            <ul class="list-disc list-inside ml-5 space-y-1 mt-1">
-              <li>View detailed metadata (title, source, CRS, abstract, credits)</li>
-              <li>Preview the dataset</li>
-              <li>Download available files</li>
-            </ul>
-          </li>
+          <li>Click any category to jump to that dataset’s metadata in the catalogue.</li>
+          <li>From there, you can view details, preview data, and download files.</li>
         </ul>
-        <p class="mt-2 italic text-sm text-gray-600">This integration allows easy access to relevant datasets directly from the map without browsing the full catalogue.</p>
-      </li>
+        <p class="mt-2 italic text-sm text-gray-600">This seamless integration makes dataset discovery intuitive and efficient.</p>
+      </section>
 
-      <li>
-        <h3 class="font-semibold text-lg mb-2">Using the Geolocation Tool</h3>
-        <p class="mb-2">Surveyors and field users can take advantage of the geolocation feature:</p>
+      <section>
+        <h3 class="font-semibold text-xl text-blue-700 mb-3">Using the Geolocation Tool</h3>
+        <p class="mb-3">Find your current location easily:</p>
         <ul class="list-disc list-inside ml-5 space-y-1">
-          <li>Click the target icon (typically a dot with surrounding rings).</li>
-          <li>If prompted, allow location access in your browser.</li>
-          <li>The map will zoom to your current location and place a marker on the map.</li>
+          <li>Click the target icon (a dot with concentric rings).</li>
+          <li>Allow browser location access if prompted.</li>
+          <li>The map will zoom to and mark your location.</li>
         </ul>
-        <p class="mt-2 italic text-sm text-gray-600">This feature is especially useful for:
-          <ul class="list-disc list-inside ml-5 space-y-1 mt-1">
-            <li>Field surveyors identifying available datasets nearby</li>
-            <li>Mobile users needing quick access to data while on-site</li>
-          </ul>
+        <p class="mt-2 italic text-sm text-gray-600">
+          Especially useful for field surveyors and mobile users who want quick access to nearby datasets.
         </p>
-      </li>
+      </section>
 
-      <li>
-        <h3 class="font-semibold text-lg mb-2">Toggling Layers with the Layer Control Panel</h3>
-        <p class="mb-2">You have full control over which spatial datasets are visible on the map:</p>
+      <section>
+        <h3 class="font-semibold text-xl text-blue-700 mb-3">Toggling Layers with the Layer Control Panel</h3>
+        <p class="mb-3">Control which spatial layers are visible on the map:</p>
         <ul class="list-disc list-inside ml-5 space-y-1">
-          <li>Open the Layer Control Panel, usually found on the top-left corner or as a collapsible sidebar.</li>
-          <li>A list of all available map layers will be shown (e.g., Roads, Beacons, Topography, DEM).</li>
-          <li>Check or uncheck boxes to toggle visibility of specific layers.</li>
+          <li>Open the Layer Control Panel, usually in the top-left corner or sidebar.</li>
+          <li>Check or uncheck layers such as Roads, Beacons, Topography, and DEM.</li>
+          <li>The map updates instantly to show or hide selected layers.</li>
         </ul>
-        <p class="mt-2 italic text-sm text-gray-600">This feature allows you to customize your viewing experience and focus only on relevant datasets.</p>
-      </li>
+        <p class="mt-2 italic text-sm text-gray-600">Customize your view for focused analysis.</p>
+      </section>
 
-      <li>
-        <h3 class="font-semibold text-lg mb-2">Navigating Back to the Homepage</h3>
-        <p class="mb-2">Click the CDNGI logo at the top of the map page at any time to:</p>
+      <section>
+        <h3 class="font-semibold text-xl text-blue-700 mb-3">Navigating Back to the Homepage</h3>
+        <p class="mb-3">At any time, click the CDNGI logo at the top of the page to:</p>
         <ul class="list-disc list-inside ml-5 space-y-1">
-          <li>Return to the geoportal homepage</li>
-          <li>Access other components such as the metadata catalogue or project background</li>
+          <li>Return to the Geoportal homepage.</li>
+          <li>Access other resources like the metadata catalogue or project background.</li>
         </ul>
-        <p class="mt-2 italic text-sm text-gray-600">This provides a quick way to return to the main site without losing your place in the map.</p>
-      </li>
+        <p class="mt-2 italic text-sm text-gray-600">Quick and easy way to navigate back without losing context.</p>
+      </section>
 
-      <li>
-        <h3 class="font-semibold text-lg mb-2">Using Zoom Controls</h3>
-        <p class="mb-2">Zooming can be done using the plus (+) and minus (-) icons located in the top-right corner of the map.</p>
+      <section>
+        <h3 class="font-semibold text-xl text-blue-700 mb-3">Using Zoom Controls</h3>
+        <p class="mb-3">Adjust your map view with the zoom buttons:</p>
         <ul class="list-disc list-inside ml-5 space-y-1">
-          <li>Click the plus icon (+) to zoom in</li>
-          <li>Click the minus icon (-) to zoom out</li>
+          <li>Click the plus (+) icon to zoom in.</li>
+          <li>Click the minus (–) icon to zoom out.</li>
         </ul>
-        <p class="mt-2 italic text-sm text-gray-600">If you’re having difficulty viewing grid cell details or map layers, these controls allow you to adjust your view easily.</p>
-      </li>
-    </ol>
+        <p class="mt-2 italic text-sm text-gray-600">
+          Use these controls to get a better view of grid cells or specific layers.
+        </p>
+      </section>
 
-    <section class="mt-8 p-4 bg-blue-50 border border-blue-200 rounded text-blue-900">
-      <h3 class="font-semibold text-xl mb-3">Tips for Best Use</h3>
-      <ul class="list-disc list-inside space-y-2">
-        <li>Use the grid number popups to note and reuse your areas of interest.</li>
-        <li>Use the geolocation tool in the field to discover nearby datasets.</li>
-        <li>If a dataset appears to be missing, check the layer panel to ensure the layer is turned on.</li>
-        <li>Always allow browser pop-ups if you’re having trouble accessing metadata links from the map.</li>
+    </div>
+
+    <section class="mt-12 p-6 bg-blue-50 border border-blue-300 rounded-lg text-blue-900 max-w-4xl mx-auto shadow-sm">
+      <h3 class="font-semibold text-2xl mb-4">Tips for Best Use</h3>
+      <ul class="list-disc list-inside space-y-3 text-lg">
+        <li>Note grid numbers displayed on hover to quickly revisit areas of interest.</li>
+        <li>Use the geolocation feature to find datasets near your current location in the field.</li>
+        <li>If a dataset seems missing, verify the corresponding layer is enabled in the Layer Control Panel.</li>
+        <li>Allow pop-ups in your browser to ensure metadata links open correctly.</li>
       </ul>
     </section>
 
