@@ -26,11 +26,13 @@
       </div>
       <nav class="space-x-6 flex items-center">
         <a href="index.html" class="text-gray-600 hover:text-blue-600 font-medium">Home</a>
+        <a href="data.html" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 font-medium">Data</a>
         <a href="metadata.html" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 font-medium">Metadata Catalogue</a>
         <a href="map.html" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 font-medium">Interactive Map</a>
       </nav>
     </div>
   </header>
+
 
   <div class="flex max-w-7xl mx-auto pt-28 pb-16 px-4">
     
@@ -45,45 +47,81 @@
         </ul>
       </div>
     </aside>
+    
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto px-4 pt-28 pb-16">
+    <h2 class="text-3xl font-bold text-blue-800 mb-6">How the Geoportal Was Created</h2>
 
-    <!-- Main Content -->
-    <main class="flex-1">
-      <section id="about">
-        <h2 class="text-3xl font-bold text-blue-800 mb-6">How the Geoportal Was Created</h2>
+    <p class="text-lg text-gray-700 mb-6">
+      The development of the CDNGI Geoportal followed a structured process designed to implement a fully functional Spatial Data Infrastructure (SDI) for Cape Town. The process ensured that spatial datasets were not only accessible, but also usable, interoperable, and standards-compliant.
+    </p>
 
-        <p class="text-lg text-gray-700 mb-6">
-          The development of the CDNGI Geoportal followed a structured process designed to implement a fully functional Spatial Data Infrastructure (SDI) for Cape Town. The process ensured that spatial datasets were not only accessible, but also usable, interoperable, and standards-compliant.
-        </p>
-      </section>
+    <ol class="list-decimal list-inside text-gray-700 space-y-4 text-lg">
+      <li>
+        <strong>Define Project Scope and Data Needs:</strong>
+        Identified the case study focus (CDNGI) and determined that spatial data should include Geodetic and Control, Topographic, Aerial Imagery, Elevation Data, Land Cover, and Cadastral Data relevant to Cape Town.
+      </li>
+      <li>
+        <strong>Acquire and Organize Spatial Data:</strong>
+        Sourced data from the UCT Geomatics File Server and the City of Cape Town (COCT) Open Data Portal. Due to size constraints, COCT WMS services were used for large datasets such as Aerial Imagery, Digital Elevation Models (DEMs), and Land Cover Maps.
+      </li>
+      <li>
+        <strong>Refine and Preprocess Data:</strong>
+        Imported datasets into ArcGIS Pro. Used Batch Clip to limit all spatial layers to the Cape Town study area, reducing file sizes to align with the storage limitations of GitHub and QGIS Cloud.
+      </li>
+      <li>
+        <strong>Provision a Cloud-Based Virtual Machine:</strong>
+        Created a free-tier Microsoft Azure Virtual Machine (VM) running Ubuntu. Configured the VM to allow external access via a static public IP address and opened necessary ports (e.g., 8080) to support GeoServer web services.
+      </li>
+      <li>
+        <strong>Set Up and Publish via GeoServer:</strong>
+        Installed GeoServer on the Azure VM. Uploaded spatial data and configured WMS and WFS services for public access. Validated the services using both QGIS and ArcGIS Pro.
+      </li>
+      <li>
+        <strong>Build the Metadata Catalogue:</strong>
+        Developed a custom HTML-based metadata catalogue hosted on GitHub Pages. Included fields such as title, keywords, description, and CRS. Embedded WMS/WFS links and download buttons for shapefiles. Added Leaflet-based map previews using GeoJSON or WMS layers.
+      </li>
+      <li>
+        <strong>Create the Interactive Web Map:</strong>
+        Styled and compiled spatial layers in QGIS. Used the QGIS Cloud plugin to publish the project and generate a public WMS. Exported the styled map using qgis2web into a Leaflet-based interactive map. Added custom interactivity and styling via HTML, CSS, and JavaScript, including:
+        <ul class="list-disc list-inside pl-6">
+          <li>Grid cell selection and highlighting</li>
+          <li>Metadata side-pane integration</li>
+          <li>Layer controls, search, geolocation, and dynamic grid indexing</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Integrate and Link All System Components:</strong>
+        Connected the interactive map to the metadata catalogue through clickable grid cells that open context-specific side panes. The website homepage features clear launch buttons and navigation links to the map and catalogue. Ensured smooth, modular transitions between components, all hosted and accessible via GitHub Pages.
+      </li>
+      <li>
+        <strong>Develop and Deploy the Geoportal Website:</strong>
+        Hand-coded a custom HTML website, hosted on GitHub, serving as the central entry point. Designed a clean layout with a navigation bar, launch buttons, project background, dataset information, and a “How to Use” guide. Maintained stylistic and structural consistency across all web components.
+      </li>
+      <li>
+        <strong>Test and Finalize the Geoportal:</strong>
+        Performed browser-based testing and external access validation. Ensured all components—metadata links, WMS/WFS services, previews, downloads, and navigation—function correctly from any device with internet access.
+      </li>
+    </ol>
 
-      <section id="process">
-        <ol class="list-decimal list-inside text-gray-700 space-y-4 text-lg">
-          <!-- Your ordered list here unchanged -->
-        </ol>
-      </section>
-
-      <section id="provision">
-        <p class="text-lg text-gray-700 mt-8">
-          The result is a modern, open-access Geoportal supporting spatial data discovery, visualization, and download—custom-built for the case study area and fully aligned with SDI principles.
-        </p>
-        <p class="text-lg text-gray-700 mt-4">
-          To read the full project creation report, click 
-          <a href="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/report.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-medium">
-            here
-          </a>.
-        </p>
-      </section>
-
-      <div class="flex justify-center gap-6 mt-12">
-        <a href="about-project.html" class="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-blue-700 transition">
-          ← Back to Overview
-        </a>
-        <a href="report.pdf" target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-blue-700 transition">
-          → View the Full Report
-        </a>
-      </div>
-    </main>
-  </div>
+    <p class="text-lg text-gray-700 mt-8">
+      The result is a modern, open-access Geoportal supporting spatial data discovery, visualization, and download—custom-built for the case study area and fully aligned with SDI principles.
+    </p>
+    <p class="text-lg text-gray-700 mt-4">
+      To read the full project creation report, click 
+      <a href="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/report.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-medium">
+        here
+      </a>.
+    </p>
+    <div class="flex justify-center gap-6 mt-12">
+      <a href="about-project.html" class="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-blue-700 transition">
+        ← Back to Overview
+      </a>
+      <a href="report.pdf" target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-blue-700 transition">
+        → View the Full Report
+      </a>
+    </div>
+  </main>
 
   <!-- Footer -->
   <footer class="bg-blue-900 text-white py-6 mt-0">
@@ -96,6 +134,5 @@
       </p>
     </div>
   </footer>
-
 </body>
 </html>
