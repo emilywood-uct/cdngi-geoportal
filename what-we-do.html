@@ -1,129 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>What the Project Provides | CDNGI</title>
-
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Smooth scrolling for anchor links -->
   <style>
     html {
       scroll-behavior: smooth;
     }
+    p, li, ul {
+      text-align: justify;
+    }
   </style>
 </head>
-
 <body class="bg-gray-50 text-gray-800">
 
-  <!-- Navigation Header -->
-  <header class="bg-white shadow fixed top-0 w-full z-50">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+  <!-- Header -->
+  <header class="bg-white shadow fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-start gap-[31rem]">
       <div class="flex items-center space-x-3">
-        <img src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Logo.png" alt="CDNGI Logo"
-          class="h-12 w-auto" />
+        <a href="index.html">
+          <img src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Logo.png" alt="CDNGI Logo" class="h-12 w-auto" />
+        </a>
         <h1 class="text-2xl font-bold text-blue-700">CDNGI Geoportal</h1>
       </div>
-      <nav class="flex space-x-6 items-center">
+      <nav class="space-x-6 flex items-center relative z-50">
         <a href="index.html" class="text-gray-600 hover:text-blue-600 font-medium">Home</a>
-        <a href="metadata.html" target="_blank" rel="noopener noreferrer"
-          class="text-gray-600 hover:text-blue-600 font-medium">Metadata Catalogue</a>
-        <a href="map.html" target="_blank" rel="noopener noreferrer"
-          class="text-gray-600 hover:text-blue-600 font-medium">Interactive Map</a>
+
+        <!-- Data Dropdown -->
+        <div class="relative">
+          <button onclick="toggleDropdown('dataDropdown')" class="text-gray-600 hover:text-blue-600 font-medium focus:outline-none">
+            Data
+          </button>
+          <div id="dataDropdown" class="absolute hidden bg-white shadow-lg rounded mt-2 min-w-[240px] whitespace-nowrap">
+            <a href="geodetic-control-data.html" target="_blank" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Geodetic and Control Data</a>
+            <a href="elevation-data.html" target="_blank" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Elevation Data</a>
+            <a href="aerial-imagery.html" target="_blank" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Aerial Imagery</a>
+            <a href="topological-maps.html" target="_blank" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Topographic Data</a>
+            <a href="landcover-maps.html" target="_blank" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Landcover Maps</a>
+            <a href="cadastral-data.html" target="_blank" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Cadastral Data</a>
+          </div>
+        </div>
+
+        <!-- Metadata -->
+        <a href="metadata.html" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 font-medium">Metadata Catalogue</a>
+
+        <!-- Interactive Map Dropdown -->
+        <div class="relative">
+          <button onclick="toggleDropdown('mapDropdown')" class="text-gray-600 hover:text-blue-600 font-medium focus:outline-none">
+            Interactive Map
+          </button>
+          <div id="mapDropdown" class="absolute hidden bg-white shadow-lg rounded mt-2 min-w-[240px] whitespace-nowrap">
+            <a href="how-to-use-map.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">How to Use the Interactive Map</a>
+            <a href="map.html" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Launch Interactive Map</a>
+          </div>
+        </div>
       </nav>
     </div>
   </header>
 
-  <!-- Main content -->
-  <main class="max-w-4xl mx-auto px-4 pt-28 pb-12">
+  <script>
+    function toggleDropdown(id) {
+      const dropdown = document.getElementById(id);
+      const isHidden = dropdown.classList.contains('hidden');
+      document.querySelectorAll('nav .absolute').forEach(el => el.classList.add('hidden'));
+      if (isHidden) dropdown.classList.remove('hidden');
+    }
 
-    <!-- Page Title -->
-    <h2 class="text-3xl font-bold text-blue-800 mb-6">What We Provide</h2>
+    document.addEventListener('click', function (e) {
+      const isDropdownButton = e.target.closest('button');
+      const isDropdownContent = e.target.closest('.absolute');
+      if (!isDropdownButton && !isDropdownContent) {
+        document.querySelectorAll('nav .absolute').forEach(el => el.classList.add('hidden'));
+      }
+    });
+  </script>
 
-    <!-- Introductory paragraphs -->
-    <p class="text-lg text-gray-700">
-      The CDNGI Geoportal provides users with centralized access to <strong>spatial data resources</strong> focused on
-      the <strong>Cape Town</strong> area. It features an <strong>interactive web map</strong> that allows users to
-      visually explore available datasets and engage with geospatial layers such as <strong>aerial imagery</strong>,
-      <strong>elevation models</strong>, <strong>cadastral boundaries</strong>, and <strong>geodetic control points</strong>.
-    </p>
+  <div class="flex max-w-7xl mx-auto pb-16 px-4 pt-0">
+    
+    <!-- Sticky Side Navigation -->
+    <aside class="w-64 mr-8 hidden lg:block">
+      <div class="sticky top-28 bg-white shadow-sm rounded-md p-4 border border-gray-200 text-sm">
+        <p class="text-gray-700 font-semibold text-xl mb-3">About Section</p>
+        <ul class="space-y-2 text-gray-700">
+          <li><a href="about-project.html" class="hover:text-blue-600 pl-4 block no-underline">About CDNGI Project</a></li>
+          <li><a href="project-creation-process.html" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 pl-4 block">Project Creation Process</a></li>
+          <li><a href="what-we-do.html" target="_blank" rel="noopener noreferrer" class="font-bold text-blue-600 pl-4 block">What We Provide</a></li>
+        </ul>
+      </div>
+    </aside>
 
-    <p class="text-lg text-gray-700 mt-6">
-      The portal also includes a <strong>metadata catalogue</strong>, which serves as a searchable <strong>data
-        clearinghouse</strong>. Within the catalogue, users can view detailed metadata for each dataset, access <strong>Web
-        Feature Services (WFS)</strong> and <strong>Web Mapping Services (WMS)</strong> links for direct GIS integration,
-      and download files directly for certain datasets. This setup supports both interactive visualization and practical
-      use of spatial data in desktop GIS applications.
-    </p>
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 pt-28 pb-16">
+      <h2 class="text-3xl font-bold text-blue-800 mb-6">What We Provide</h2>
+      
+      <p class="text-lg text-gray-700 mb-6">
+        The CDNGI Geoportal provides users with centralized access to <strong>spatial data resources</strong> focused on the <strong>Cape Town</strong> area. It features an <strong>interactive web map</strong> that allows users to visually explore available datasets and engage with geospatial layers such as <strong>aerial imagery</strong>, <strong>elevation models</strong>, <strong>cadastral boundaries</strong>, and <strong>geodetic control points</strong>.
+      </p>
+      <p class="text-lg text-gray-700 mb-6">
+        The portal also includes a <strong>metadata catalogue</strong>, which serves as a searchable <strong>data clearinghouse</strong>. Within the catalogue, users can view detailed metadata for each dataset, access <strong>Web Feature Services (WFS)</strong> and <strong>Web Mapping Services (WMS)</strong> links for direct GIS integration, and download files directly for certain datasets. This setup supports both interactive visualization and practical use of spatial data in desktop GIS applications.
+      </p>
+      <p class="text-lg text-gray-700 mb-6">
+        The geoportal is built to enhance <strong>data discoverability, accessibility, and usability</strong>—key goals in the implementation of spatial data infrastructures.
+      </p>
+      <p class="text-lg text-gray-700 mb-6">
+        The web portal connects the Geo-Database, metadata clearinghouse, and web services, providing an integrated platform for spatial data access and management tailored to the organization’s needs.
+      </p>
 
-    <p class="text-lg text-gray-700 mt-6">
-      The geoportal is built to enhance <strong>data discoverability, accessibility, and usability</strong>—key goals in
-      the implementation of spatial data infrastructures.
-    </p>
+      <!-- Card Box with link -->
+      <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-6 shadow-sm">
+        <p class="text-blue-800 text-lg">
+          To view the process on how the Geoportal was created, click 
+          <a href="project-creation-process.html" class="text-blue-600 hover:underline font-semibold">here</a>.
+        </p>
+      </div>
 
-    <p class="text-lg text-gray-700 mt-6">
-      The web portal connects the Geo-Database, metadata clearinghouse, and web services, providing an integrated platform
-      for spatial data access and management tailored to the organization’s needs.
-    </p>
+      <!-- New: Section heading before grid -->
+      <h3 class="text-xl font-semibold text-blue-700 mt-10 mb-4 text-center">Below are a few snapshots of some datasets we provide</h3>
 
-    <!-- Highlight box linking to project creation process -->
-    <div
-      class="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-6 shadow-sm text-blue-800 text-lg font-semibold max-w-xl mx-auto text-center">
-      To view the process on how the Geoportal was created, click
-      <a href="project-creation-process.html" class="text-blue-600 hover:underline ml-1">here</a>.
+      <!-- Images Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+        <div class="text-center">
+          <img src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/aerial.jpg" alt="Aerial imagery" class="w-full max-w-xs rounded-md shadow-md mx-auto" loading="lazy"/>
+          <p class="mt-2 text-sm text-gray-600">Aerial Imagery</p>
+        </div>
+        <div class="text-center">
+          <img src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/dem.jpg" alt="Digital Elevation Model (DEM)" class="w-full max-w-xs rounded-md shadow-md mx-auto" />
+          <p class="mt-2 text-sm text-gray-600">Digital Elevation Model (DEM)</p>
+        </div>
+        <div class="text-center">
+          <img src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/topo.jpg" alt="Topographic maps" class="w-full max-w-xs rounded-md shadow-md mx-auto" />
+          <p class="mt-2 text-sm text-gray-600">Topological Maps</p>
+        </div>
+        <div class="text-center">
+          <img src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/tsm.jpg" alt="Township maps" class="w-full max-w-xs rounded-md shadow-md mx-auto" />
+          <p class="mt-2 text-sm text-gray-600">Town Survey Marks (TSM)</p>
+        </div>
+        <div class="text-center">
+          <img src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/landcover.jpg" alt="Land cover classification" class="w-full max-w-xs rounded-md shadow-md mx-auto" />
+          <p class="mt-2 text-sm text-gray-600">Land Cover Classification Maps</p>
+        </div>
+        <div class="text-center">
+          <img src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/trig.jpg" alt="Trigonometric beacons" class="w-full max-w-xs rounded-md shadow-md mx-auto" />
+          <p class="mt-2 text-sm text-gray-600">Trigonometric Beacons</p>
+        </div>
+      </div>
+      
+      <p class="text-center text-gray-600 text-sm">
+        To View more Datasets, Access the Interactive Map 
+        <a href="map.html" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">here</a>.
+      </p>
+
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-blue-900 text-white py-6 mt-0">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between text-sm">
+      <p class="mb-2 md:mb-0 text-center md:text-left">
+        © 2025 CDNGI Geoportal Prototype – Created for Spatial Data Infrastructures (APG3039F)
+      </p>
+      <p class="text-center md:text-right">
+        Developed by <strong>Emily Wood</strong> &amp; <strong>Ben Pretorius</strong>
+      </p>
     </div>
-
-    <!-- Section heading before image grid -->
-    <h3 class="text-xl font-semibold text-blue-700 mt-10 mb-4 text-center">
-      Below are a few snapshots of some datasets we provide
-    </h3>
-
-    <!-- Dataset Images Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
-      <div class="text-center">
-        <img src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/aerial.jpg" alt="Aerial imagery"
-          class="w-full max-w-xs rounded-md shadow-md mx-auto" loading="lazy" />
-        <p class="mt-2 text-sm text-gray-600">Aerial Imagery</p>
-      </div>
-      <div class="text-center">
-        <img src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/dem.jpg"
-          alt="Digital Elevation Model (DEM)" class="w-full max-w-xs rounded-md shadow-md mx-auto" />
-        <p class="mt-2 text-sm text-gray-600">Digital Elevation Model (DEM)</p>
-      </div>
-      <div class="text-center">
-        <img src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/topo.jpg" alt="Topographic maps"
-          class="w-full max-w-xs rounded-md shadow-md mx-auto" />
-        <p class="mt-2 text-sm text-gray-600">Topological Maps</p>
-      </div>
-      <div class="text-center">
-        <img src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/tsm.jpg" alt="Township maps"
-          class="w-full max-w-xs rounded-md shadow-md mx-auto" />
-        <p class="mt-2 text-sm text-gray-600">Town Survey Marks (TSM)</p>
-      </div>
-      <div class="text-center">
-        <img src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/landcover.jpg"
-          alt="Land cover classification" class="w-full max-w-xs rounded-md shadow-md mx-auto" />
-        <p class="mt-2 text-sm text-gray-600">Land Cover Classification Maps</p>
-      </div>
-      <div class="text-center">
-        <img src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/trig.jpg" alt="Trigonometric beacons"
-          class="w-full max-w-xs rounded-md shadow-md mx-auto" />
-        <p class="mt-2 text-sm text-gray-600">Trigonometric Beacons</p>
-      </div>
-    </div>
-
-    <!-- Link to Interactive Map -->
-    <p class="text-center text-gray-600 text-sm">
-      To view more datasets, access the interactive map
-      <a href="map.html" target="_blank" rel="noopener noreferrer"
-        class="text-blue-600 hover:underline font-semibold ml-1">here</a>.
-    </p>
-
-  </main>
+  </footer>
 
 </body>
-
 </html>
