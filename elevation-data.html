@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Elevation Data | CDNGI Geoportal</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>html { scroll-behavior: smooth; }</style>
+  <style>
+    html { scroll-behavior: smooth; }
+    main p, main li { text-align: justify; }
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
@@ -24,42 +27,63 @@
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="max-w-5xl mx-auto px-4 pt-28 pb-12">
-    <h2 class="text-3xl font-bold text-blue-800 mb-6">Elevation Data</h2>
+  <div class="flex max-w-7xl mx-auto pt-28 px-4 pb-12">
+    
+    <!-- Sticky Side Pane -->
+    <aside class="w-64 hidden md:block mr-10">
+      <div class="sticky top-28 bg-white p-4 border border-blue-100 rounded-xl shadow-md">
+        <h3 class="text-xl font-bold text-blue-800 mb-3">Data</h3>
+        <ul class="space-y-2 text-blue-700">
+          <li><a href="geodetic.html" class="font-semibold hover:underline">Geodetic and Control Data</a></li>
+          <li><a href="elevation.html" class="hover:underline">Elevation Data</a></li>
+          <li><a href="aerial.html" class="hover:underline">Aerial Imagery</a></li>
+          <li><a href="allotment.html" class="hover:underline">Allotment Township</a></li>
+          <li><a href="farms.html" class="hover:underline">Farms</a></li>
+          <li><a href="lease.html" class="hover:underline">Lease Area</a></li>
+          <li><a href="beacons.html" class="hover:underline">Beacons</a></li>
+          <li><a href="streets.html" class="hover:underline">Streets</a></li>
+        </ul>
+      </div>
+    </aside>
 
-    <p class="mb-4 text-gray-700">
-      Our Elevation Data includes high-resolution Digital Elevation Models (DEMs) that provide accurate representations of terrain elevation and surface morphology. These datasets are widely used in applications such as flood risk modeling, watershed analysis, infrastructure planning, and environmental monitoring.
-    </p>
+    <!-- Main Content -->
+    <main class="flex-1">
+      <h2 class="text-3xl font-bold text-blue-800 mb-6">Elevation Data</h2>
 
-    <div class="mb-8">
-      <h3 class="text-2xl font-semibold text-blue-700 mb-2">Available DEM Resolutions</h3>
-      <ul class="list-disc list-inside text-gray-700">
-        <li><strong>2m DEM:</strong> High-resolution elevation data suitable for detailed site analysis, engineering design, and urban planning.</li>
-        <li><strong>5m DEM:</strong> Medium-resolution data ideal for regional terrain modeling and hydrological studies.</li>
-        <li><strong>10m DEM:</strong> Coarser resolution data used for national-scale analysis and broad land surface assessment.</li>
-      </ul>
-    </div>
-
-    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 shadow-sm mb-8">
-      <p class="text-blue-800 text-lg">
-        You can explore Elevation Data interactively using the 
-        <a href="map.html" target="_blank" class="text-blue-600 font-semibold hover:underline">Interactive Map</a> 
-        or download elevation datasets and metadata from the 
-        <a href="metadata.html" target="_blank" class="text-blue-600 font-semibold hover:underline">Metadata Catalogue</a>.
+      <p class="mb-4 text-gray-700">
+        Our Elevation Data includes high-resolution Digital Elevation Models (DEMs) that provide accurate representations of terrain elevation and surface morphology. These datasets are widely used in applications such as flood risk modeling, watershed analysis, infrastructure planning, and environmental monitoring.
       </p>
-    </div>
-  </main>
-  
-    <footer class="bg-blue-900 text-white py-6 mt-0">
-      <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between text-sm">
-        <p class="mb-2 md:mb-0 text-center md:text-left">
-          © 2025 CDNGI Geoportal Prototype – Created for Spatial Data Infrastructures (APG3039F)
-        </p>
-        <p class="text-center md:text-right">
-          Developed by <strong>Emily Wood</strong> & <strong>Ben Pretorius</strong>
+
+      <div class="mb-8">
+        <h3 class="text-2xl font-semibold text-blue-700 mb-2">Available DEM Resolutions</h3>
+        <ul class="list-disc list-inside text-gray-700 space-y-2">
+          <li><strong>2m DEM:</strong> High-resolution elevation data suitable for detailed site analysis, engineering design, and urban planning.</li>
+          <li><strong>5m DEM:</strong> Medium-resolution data ideal for regional terrain modeling and hydrological studies.</li>
+          <li><strong>10m DEM:</strong> Coarser resolution data used for national-scale analysis and broad land surface assessment.</li>
+        </ul>
+      </div>
+
+      <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 shadow-sm mb-8">
+        <p class="text-blue-800 text-lg">
+          You can explore Elevation Data interactively using the 
+          <a href="map.html" target="_blank" class="text-blue-600 font-semibold hover:underline">Interactive Map</a> 
+          or download elevation datasets and metadata from the 
+          <a href="metadata.html" target="_blank" class="text-blue-600 font-semibold hover:underline">Metadata Catalogue</a>.
         </p>
       </div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-blue-900 text-white py-6 mt-0">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between text-sm">
+      <p class="mb-2 md:mb-0 text-center md:text-left">
+        © 2025 CDNGI Geoportal Prototype – Created for Spatial Data Infrastructures (APG3039F)
+      </p>
+      <p class="text-center md:text-right">
+        Developed by <strong>Emily Wood</strong> & <strong>Ben Pretorius</strong>
+      </p>
+    </div>
   </footer>
 </body>
 </html>
