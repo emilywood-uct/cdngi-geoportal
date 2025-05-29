@@ -28,17 +28,17 @@
       <nav class="space-x-6 flex items-center relative z-50">
         <a href="index.html" class="text-gray-600 hover:text-blue-600 font-medium">Home</a>
 
-        <!-- About Dropdown -->
-        <div class="relative">
-          <button onclick="toggleDropdown('dataDropdown')" class="text-gray-600 hover:text-blue-600 font-medium focus:outline-none">
-            About
-          </button>
-          <div id="dataDropdown" class="absolute hidden bg-white shadow-lg rounded mt-2 min-w-[240px] whitespace-nowrap">
-            <a href="about-project.html" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:bg-blue-100">About CDNGI Project</a>
-            <a href="project-creation-process.html" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:bg-blue-100">Project Creation Process</a>
-            <a href="what-we-do.html" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:bg-blue-100">What We Provide</a>
-          </div>
+      <!-- About Dropdown -->
+      <div class="relative">
+        <button onclick="toggleDropdown('aboutDropdown')" class="text-gray-600 hover:text-blue-600 font-medium focus:outline-none">
+          About
+        </button>
+        <div id="aboutDropdown" class="absolute hidden bg-white shadow-lg rounded mt-2 min-w-[240px] whitespace-nowrap z-50">
+          <a href="about-project.html" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">About CDNGI Project</a>
+          <a href="project-creation-process.html" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Project Creation Process</a>
+          <a href="what-we-do.html" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">What We Provide</a>
         </div>
+      </div>
 
         <!-- Metadata -->
         <a href="metadata.html" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 font-medium">Metadata Catalogue</a>
@@ -49,7 +49,7 @@
             Interactive Map
           </button>
           <div id="mapDropdown" class="absolute hidden bg-white shadow-lg rounded mt-2 min-w-[240px] whitespace-nowrap">
-            <a href="how-to-use-map.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">How to Use the Interactive Map</a>
+            <a href="how-to-use-map.html" target="_blank" rel="noopener noreferrer"class="block px-4 py-2 text-gray-700 hover:bg-blue-100">How to Use the Interactive Map</a>
             <a href="map.html" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Launch Interactive Map</a>
           </div>
         </div>
@@ -81,8 +81,8 @@
       <div class="sticky top-28 bg-white shadow-sm rounded-md p-4 border border-gray-200 text-sm">
         <p class="text-gray-700 font-semibold text-xl mb-3">Data</p>
         <ul class="space-y-2 text-gray-700">
-          <li><a href="geodetic-control-data.html" class="font-bold text-blue-600 pl-4 block no-underline">Geodetic and Control Data</a></li>
-          <li><a href="elevation-data.html" class="hover:text-blue-600 pl-4 block no-underline">Elevation Data</a></li>
+          <li><a href="geodetic-control-data.html" class="hover:text-blue-600 pl-4 block no-underline">Geodetic and Control Data</a></li>
+          <li><a href="elevation-data.html" class="font-bold text-blue-600 pl-4 block no-underline">Elevation Data</a></li>
           <li><a href="aerial-imagery.html" class="hover:text-blue-600 pl-4 block no-underline">Aerial Imagery</a></li>
           <li><a href="topological-maps.html" class="hover:text-blue-600 pl-4 block no-underline">Topographic Data</a></li>
           <li><a href="landcover-maps.html" class="hover:text-blue-600 pl-4 block no-underline">Landcover Maps</a></li>
@@ -117,7 +117,8 @@
       </p>
     </div>
   </main>
-
+  </div>
+  
   <!-- Footer -->
   <footer class="bg-blue-900 text-white py-6 mt-0">
     <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between text-sm">
