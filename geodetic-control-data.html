@@ -5,67 +5,140 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Geodetic and Control Data | CDNGI Geoportal</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>html { scroll-behavior: smooth; }</style>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    p, li, ul {
+      text-align: justify;
+    }
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
   <!-- Header -->
   <header class="bg-white shadow fixed w-full z-50">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-start gap-[31rem]">
       <div class="flex items-center space-x-3">
-        <img src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Logo.png" alt="CDNGI Logo" class="h-12 w-auto" />
+        <a href="index.html">
+          <img src="https://raw.githubusercontent.com/emilywood-uct/cdngi-geoportal/main/Logo.png" alt="CDNGI Logo" class="h-12 w-auto" />
+        </a>
         <h1 class="text-2xl font-bold text-blue-700">CDNGI Geoportal</h1>
       </div>
-      <nav class="space-x-6 flex items-center">
+      <nav class="space-x-6 flex items-center relative z-50">
         <a href="index.html" class="text-gray-600 hover:text-blue-600 font-medium">Home</a>
+
+        <!-- Data Dropdown -->
+        <div class="relative">
+          <button onclick="toggleDropdown('dataDropdown')" class="text-gray-600 hover:text-blue-600 font-medium focus:outline-none">
+            Data
+          </button>
+          <div id="dataDropdown" class="absolute hidden bg-white shadow-lg rounded mt-2 min-w-[240px] whitespace-nowrap">
+            <a href="geodetic-control-data.html" class="block px-4 py-2 text-blue-700 font-bold bg-blue-50 cursor-default">Geodetic and Control Data</a>
+            <a href="elevation-data.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Elevation Data</a>
+            <a href="aerial-imagery.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Aerial Imagery</a>
+            <a href="topological-maps.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Topographic Data</a>
+            <a href="landcover-maps.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Landcover Maps</a>
+            <a href="cadastral-data.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Cadastral Data</a>
+          </div>
+        </div>
+
+        <!-- Metadata -->
         <a href="metadata.html" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 font-medium">Metadata Catalogue</a>
-        <a href="map.html" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 font-medium">Interactive Map</a>
+
+        <!-- Interactive Map Dropdown -->
+        <div class="relative">
+          <button onclick="toggleDropdown('mapDropdown')" class="text-gray-600 hover:text-blue-600 font-medium focus:outline-none">
+            Interactive Map
+          </button>
+          <div id="mapDropdown" class="absolute hidden bg-white shadow-lg rounded mt-2 min-w-[240px] whitespace-nowrap">
+            <a href="how-to-use-map.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">How to Use the Interactive Map</a>
+            <a href="map.html" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Launch Interactive Map</a>
+          </div>
+        </div>
       </nav>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="max-w-5xl mx-auto px-4 pt-28 pb-12">
-    <h2 class="text-3xl font-bold text-blue-800 mb-6">Geodetic and Control Data</h2>
+  <script>
+    function toggleDropdown(id) {
+      const dropdown = document.getElementById(id);
+      const isHidden = dropdown.classList.contains('hidden');
+      document.querySelectorAll('nav .absolute').forEach(el => el.classList.add('hidden'));
+      if (isHidden) dropdown.classList.remove('hidden');
+    }
 
-    <p class="mb-4 text-gray-700">
-      Our Geodetic and Control Data consists of precise reference points and networks that form the backbone for all mapping and surveying activities across South Africa. This data ensures spatial accuracy and consistency for all geospatial datasets and infrastructure planning.
-    </p>
+    document.addEventListener('click', function (e) {
+      const isDropdownButton = e.target.closest('button');
+      const isDropdownContent = e.target.closest('.absolute');
+      if (!isDropdownButton && !isDropdownContent) {
+        document.querySelectorAll('nav .absolute').forEach(el => el.classList.add('hidden'));
+      }
+    });
+  </script>
 
-    <div class="mb-8">
-      <h3 class="text-2xl font-semibold text-blue-700 mb-2">Trigonometrical Beacons (Trig Beacons)</h3>
-      <p class="text-gray-700 mb-4">
-        Trigonometrical beacons are high-accuracy geodetic control points used for national surveying and geospatial referencing. These fixed, visible markers are distributed across the country and provide essential reference for triangulation and mapping. Each beacon includes detailed coordinate information such as latitude, longitude, and ellipsoidal height.
+  <div class="flex max-w-7xl mx-auto pb-16 px-4 pt-0">
+
+    <!-- Sticky Side Navigation: Data menu -->
+    <aside class="w-64 mr-8 hidden lg:block">
+      <div class="sticky top-28 bg-white shadow-sm rounded-md p-4 border border-gray-200 text-sm">
+        <p class="text-gray-700 font-semibold text-xl mb-3">Data</p>
+        <ul class="space-y-2 text-gray-700">
+          <li><a href="geodetic-control-data.html" class="font-bold text-blue-600 pl-4 block no-underline">Geodetic and Control Data</a></li>
+          <li><a href="elevation-data.html" class="hover:text-blue-600 pl-4 block no-underline">Elevation Data</a></li>
+          <li><a href="aerial-imagery.html" class="hover:text-blue-600 pl-4 block no-underline">Aerial Imagery</a></li>
+          <li><a href="topological-maps.html" class="hover:text-blue-600 pl-4 block no-underline">Topographic Data</a></li>
+          <li><a href="landcover-maps.html" class="hover:text-blue-600 pl-4 block no-underline">Landcover Maps</a></li>
+          <li><a href="cadastral-data.html" class="hover:text-blue-600 pl-4 block no-underline">Cadastral Data</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 pt-28 pb-16">
+      <h2 class="text-3xl font-bold text-blue-800 mb-6">Geodetic and Control Data</h2>
+
+      <p class="mb-4 text-gray-700">
+        Our Geodetic and Control Data consists of precise reference points and networks that form the backbone for all mapping and surveying activities across South Africa. This data ensures spatial accuracy and consistency for all geospatial datasets and infrastructure planning.
       </p>
-    </div>
 
-    <div class="mb-8">
-      <h3 class="text-2xl font-semibold text-blue-700 mb-2">Town Survey Marks (TSMs)</h3>
-      <p class="text-gray-700 mb-4">
-        Town Survey Marks are control points used primarily for urban and cadastral surveying within towns and cities. These marks provide reliable local references and are essential for property boundary surveys, engineering design, and municipal infrastructure planning. They are often embedded in pavements, sidewalks, or other permanent structures.
-      </p>
-    </div>
-
-    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 shadow-sm mb-8">
-      <p class="text-blue-800 text-lg">
-        You can explore Geodetic Control Data using the 
-        <a href="map.html" target="_blank" class="text-blue-600 font-semibold hover:underline">Interactive Map</a> 
-        or download metadata and datasets from the 
-        <a href="metadata.html" target="_blank" class="text-blue-600 font-semibold hover:underline">Metadata Catalogue</a>.
-      </p>
-    </div>
-
-  </main>
-
-    <footer class="bg-blue-900 text-white py-6 mt-0">
-      <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between text-sm">
-        <p class="mb-2 md:mb-0 text-center md:text-left">
-          © 2025 CDNGI Geoportal Prototype – Created for Spatial Data Infrastructures (APG3039F)
-        </p>
-        <p class="text-center md:text-right">
-          Developed by <strong>Emily Wood</strong> & <strong>Ben Pretorius</strong>
+      <div class="mb-8">
+        <h3 class="text-2xl font-semibold text-blue-700 mb-2">Trigonometrical Beacons (Trig Beacons)</h3>
+        <p class="text-gray-700 mb-4">
+          Trigonometrical beacons are high-accuracy geodetic control points used for national surveying and geospatial referencing. These fixed, visible markers are distributed across the country and provide essential reference for triangulation and mapping. Each beacon includes detailed coordinate information such as latitude, longitude, and ellipsoidal height.
         </p>
       </div>
+
+      <div class="mb-8">
+        <h3 class="text-2xl font-semibold text-blue-700 mb-2">Town Survey Marks (TSMs)</h3>
+        <p class="text-gray-700 mb-4">
+          Town Survey Marks are control points used primarily for urban and cadastral surveying within towns and cities. These marks provide reliable local references and are essential for property boundary surveys, engineering design, and municipal infrastructure planning. They are often embedded in pavements, sidewalks, or other permanent structures.
+        </p>
+      </div>
+
+      <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 shadow-sm mb-8">
+        <p class="text-blue-800 text-lg">
+          You can explore Geodetic Control Data using the 
+          <a href="map.html" target="_blank" class="text-blue-600 font-semibold hover:underline">Interactive Map</a> 
+          or download metadata and datasets from the 
+          <a href="metadata.html" target="_blank" class="text-blue-600 font-semibold hover:underline">Metadata Catalogue</a>.
+        </p>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-blue-900 text-white py-6 mt-0">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between text-sm">
+      <p class="mb-2 md:mb-0 text-center md:text-left">
+        © 2025 CDNGI Geoportal Prototype – Created for Spatial Data Infrastructures (APG3039F)
+      </p>
+      <p class="text-center md:text-right">
+        Developed by <strong>Emily Wood</strong> &amp; <strong>Ben Pretorius</strong>
+      </p>
+    </div>
   </footer>
+
 </body>
 </html>
